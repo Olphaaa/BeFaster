@@ -1,0 +1,54 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\Be faster\\Be faster.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\Be faster\\Be faster.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\Be faster\\Be faster.csproj",
+        "projectName": "Be faster",
+        "projectPath": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\Be faster\\Be faster.csproj",
+        "packagesPath": "C:\\Users\\hugod\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\Be faster\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hugod\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid90"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid90": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid90": {
+          "dependencies": {
+            "MonoGame.Content.Builder.Task": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            },
+            "MonoGame.Framework.Android": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}
