@@ -25,7 +25,7 @@
 /processorParam:TextureFormat=Color
 /build:1994-zazu-01.jpg;zazu.jpg
 
-#begin bg.png
+#begin Texture/bg.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,5 +35,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:bg.png
+/build:Texture/bg.png
 

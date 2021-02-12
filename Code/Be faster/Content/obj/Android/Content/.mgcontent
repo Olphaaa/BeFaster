@@ -5,7 +5,7 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/1994-zazu-01.jpg</File>
-    <File>C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/bg.png</File>
+    <File>C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/Texture/bg.png</File>
   </SourceFiles>
   <DestFiles>
     <File>zazu.jpg</File>

@@ -33,7 +33,7 @@ namespace Be_faster
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            bgTexture = Content.Load<Texture2D>("bg");
+            bgTexture = Content.Load<Texture2D>("Texture/bg");
             mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
         }
@@ -50,7 +50,7 @@ namespace Be_faster
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();

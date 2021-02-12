@@ -110,4 +110,4 @@ C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\stamp\_Conv
 C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\bin\AnyCPU\Debug\Content\bg.png
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\bin\AnyCPU\Debug\Content\Texture\bg.png
