@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/Texture/bg.png</SourceFile>
-  <SourceTime>2021-02-09T08:38:40.9327912+01:00</SourceTime>
+  <SourceTime>2021-02-23T08:33:48.8158187+01:00</SourceTime>
   <DestFile>C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/bin/Android/Content/Texture/bg.xnb</DestFile>
-  <DestTime>2021-02-09T08:44:38.0975591+01:00</DestTime>
+  <DestTime>2021-02-23T08:33:52.2300769+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
