@@ -24,6 +24,16 @@
         "build": {
           "build/MonoGame.Framework.Android.targets": {}
         }
+      },
+      "BeFaster/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/BeFaster.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BeFaster.dll": {}
+        }
       }
     }
   },
@@ -125,30 +135,36 @@
         "monogame.framework.android.3.8.0.1641.nupkg.sha512",
         "monogame.framework.android.nuspec"
       ]
+    },
+    "BeFaster/1.0.0": {
+      "type": "project",
+      "path": "../BeFaster/BeFaster.csproj",
+      "msbuildProject": "../BeFaster/BeFaster.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v9.0": [
+      "BeFaster >= 1.0.0",
       "MonoGame.Content.Builder.Task >= 3.8.0.1641",
       "MonoGame.Framework.Android >= 3.8.0.1641"
     ]
   },
   "packageFolders": {
     "C:\\Users\\olivi\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "G:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
+      "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\Be faster.csproj",
       "projectName": "Be faster",
-      "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
+      "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\Be faster.csproj",
       "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\obj\\",
+      "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "G:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\olivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -164,7 +180,11 @@
       },
       "frameworks": {
         "monoandroid90": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj": {
+              "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj"
+            }
+          }
         }
       }
     },

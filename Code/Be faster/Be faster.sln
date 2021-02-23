@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be faster", "Be faster.csproj", "{07CCF8CB-7513-4B76-889B-AB3374F6C7F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game1", "..\Game1\Game1.csproj", "{6E75DAE1-5FC0-4BDE-95A2-EAC1AA1EDDF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeFaster", "..\BeFaster\BeFaster.csproj", "{BCC19971-B04F-4C6A-807F-D058337982C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,10 @@ Global
 		{07CCF8CB-7513-4B76-889B-AB3374F6C7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07CCF8CB-7513-4B76-889B-AB3374F6C7F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{07CCF8CB-7513-4B76-889B-AB3374F6C7F0}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{6E75DAE1-5FC0-4BDE-95A2-EAC1AA1EDDF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E75DAE1-5FC0-4BDE-95A2-EAC1AA1EDDF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E75DAE1-5FC0-4BDE-95A2-EAC1AA1EDDF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E75DAE1-5FC0-4BDE-95A2-EAC1AA1EDDF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCC19971-B04F-4C6A-807F-D058337982C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC19971-B04F-4C6A-807F-D058337982C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC19971-B04F-4C6A-807F-D058337982C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC19971-B04F-4C6A-807F-D058337982C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

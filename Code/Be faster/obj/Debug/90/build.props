@@ -11,7 +11,7 @@ embedassembliesintoapk=false
 androidlinkmode=none
 androidlinkskip=
 androidsdkbuildtoolsversion=29.0.2
-androidsdkpath=c:\program files (x86)\android\android-sdk\
+androidsdkpath=g:\android\android-sdk\
 androidndkpath=
 javasdkpath=c:\program files\android\jdk\microsoft_dist_openjdk_1.8.0.25\
 androidsequencepointsmode=none
@@ -24,7 +24,7 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=637484582044650175
+_nugetassetstimestamp=637491793468406886
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
