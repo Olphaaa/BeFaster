@@ -24,9 +24,12 @@ namespace Game1.Game
         
         public Route(IServiceProvider serviceProvider, ContentManager content)
         {
+            // Create a new content manager to load content used just by this level.
+            content = new ContentManager(serviceProvider, "Content");
             this.content = content;
             layerRoute = Content.Load<Texture2D>("Route/road");
-            LoadCar(10,10);
+            //layerRoute = Content.Load<Texture2D>("Sprites/Cars/red");
+            LoadCar(10, 10);
         }
         public void LoadCar(int x, int y)
         { 
@@ -35,7 +38,7 @@ namespace Game1.Game
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             DrawRoute(spriteBatch);
-            mainCar.Draw(gameTime, spriteBatch);
+            MainCar.Draw(gameTime, spriteBatch);
         }
 
         private void DrawRoute(SpriteBatch spriteBatch)
