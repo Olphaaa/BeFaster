@@ -84,11 +84,6 @@
     <PackageReference Include="MonoGame.Framework.Android" Version="3.8.0.1641" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bg.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BeFaster\BeFaster.csproj">
       <Project>{bcc19971-b04f-4c6a-807f-d058337982c1}</Project>
       <Name>BeFaster</Name>
