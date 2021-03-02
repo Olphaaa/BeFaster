@@ -33,7 +33,7 @@ namespace Game1.Game
             content = new ContentManager(serviceProvider, "Content");
             this.content = content;
             this.baseScreenSize = baseScreenSize;
-            layerRoute = Content.Load<Texture2D>("Route/road_big");
+            layerRoute = Content.Load<Texture2D>("Route/road_big_debug");
             LoadCar(10, 10);
         }
         
