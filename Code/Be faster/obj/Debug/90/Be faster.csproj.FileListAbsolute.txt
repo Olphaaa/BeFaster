@@ -110,7 +110,6 @@ C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\stamp\_Conv
 C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\bin\AnyCPU\Debug\Content\bg.png
 C:\Users\olivi\Desktop\be-faster\Code\Be faster\bin\AnyCPU\Debug\Content\bg.png
 C:\Users\olivi\Desktop\be-faster\Code\Be faster\bin\AnyCPU\Debug\Be faster.dll
 C:\Users\olivi\Desktop\be-faster\Code\Be faster\bin\AnyCPU\Debug\Be faster.pdb
@@ -376,3 +375,23 @@ C:\Users\olivi\Desktop\be-faster - Copie\Code\Be faster\obj\Debug\90\stamp\_Gene
 C:\Users\olivi\Desktop\be-faster - Copie\Code\Be faster\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\olivi\Desktop\be-faster - Copie\Code\Be faster\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\olivi\Desktop\be-faster - Copie\Code\Be faster\obj\Debug\90\Be faster.csprojAssemblyReference.cache
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\bin\AnyCPU\Debug\BeFaster.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\bin\AnyCPU\Debug\BeFaster.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\Be faster.csproj.CopyComplete
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\BeFaster.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\BeFaster.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\netstandard.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Data.DataSetExtensions.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Data.DataSetExtensions.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Data.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Data.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.IO.Compression.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.IO.Compression.FileSystem.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.IO.Compression.FileSystem.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.IO.Compression.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Transactions.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Transactions.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Web.Services.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Web.Services.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Xml.Linq.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\Be faster\obj\Debug\90\android\assets\System.Xml.Linq.pdb

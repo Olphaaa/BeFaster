@@ -25,3 +25,12 @@ C:\Users\olivi\Desktop\be-faster - Copie\Code\BeFaster\obj\Debug\netstandard2.0\
 C:\Users\olivi\Desktop\be-faster - Copie\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.csproj.CoreCompileInputs.cache
 C:\Users\olivi\Desktop\be-faster - Copie\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.dll
 C:\Users\olivi\Desktop\be-faster - Copie\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\BeFaster.deps.json
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\BeFaster.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\BeFaster.pdb
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.csprojAssemblyReference.cache
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.AssemblyInfoInputs.cache
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.AssemblyInfo.cs
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.csproj.CoreCompileInputs.cache
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.dll
+C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.pdb

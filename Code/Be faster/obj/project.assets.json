@@ -150,24 +150,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\olivi\\.nuget\\packages\\": {},
-    "G:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\hugod\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\Be faster.csproj",
+      "projectUniqueName": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\Be faster\\Be faster.csproj",
       "projectName": "Be faster",
-      "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\Be faster.csproj",
-      "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\obj\\",
+      "projectPath": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\Be faster\\Be faster.csproj",
+      "packagesPath": "C:\\Users\\hugod\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\Be faster\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "G:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\olivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hugod\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -181,8 +181,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj": {
-              "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj"
+            "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
+              "projectPath": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\BeFaster\\BeFaster.csproj"
             }
           }
         }

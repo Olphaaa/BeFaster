@@ -4,8 +4,8 @@
   <Platform>Android</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/Route/road.png</File>
-    <File>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/Sprites/Cars/red.png</File>
+    <File>C:/Users/hugod/Documents/Cours/be-faster/Code/BeFaster/Content/Route/road.png</File>
+    <File>C:/Users/hugod/Documents/Cours/be-faster/Code/BeFaster/Content/Sprites/Cars/red.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

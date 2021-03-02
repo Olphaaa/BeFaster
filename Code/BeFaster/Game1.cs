@@ -16,7 +16,7 @@ namespace BeFaster
         private Rectangle mainFrame;
         Vector2 baseScreenSize = new Vector2(1242, 2208);
         private Matrix globalTransformation;
-        //private Accelerometer accelerometre;
+        private AccelerometerState accelerometre;
 
         public Vector2 getBaseScreenSize()
         {
@@ -30,8 +30,7 @@ namespace BeFaster
             graphics.IsFullScreen = false;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            //accelerometre = new Accelerometer();
-            //accelerometre.getStat();
+            Accelerometer.Initialize();
         }
 
         protected override void Initialize()
@@ -52,6 +51,7 @@ namespace BeFaster
         }
 
         private int backbufferWidth, backbufferHeight;
+
         public void ScalePresentationArea()
         {
             //Work out how much we need to scale our graphics to fill the screen
@@ -67,6 +67,9 @@ namespace BeFaster
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+            accelerometre=Accelerometer.GetState();
+            System.Diagnostics.Debug.WriteLine(accelerometre.ToString());
 
             // TODO: Add your update logic here
 
