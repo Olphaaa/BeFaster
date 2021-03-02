@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using BeFaster.Game;
 
 namespace BeFaster
 {
@@ -13,8 +14,9 @@ namespace BeFaster
         private Texture2D textureRoute;
         private Texture2D textureVoiture;
         private Rectangle mainFrame;
-        Vector2 baseScreenSize = new Vector2(1242,2208);
+        Vector2 baseScreenSize = new Vector2(1242, 2208);
         private Matrix globalTransformation;
+        //private Accelerometer accelerometre;
 
         public Vector2 getBaseScreenSize()
         {
@@ -28,6 +30,8 @@ namespace BeFaster
             graphics.IsFullScreen = false;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            //accelerometre = new Accelerometer();
+            //accelerometre.getStat();
         }
 
         protected override void Initialize()
@@ -42,7 +46,7 @@ namespace BeFaster
             this.Content.RootDirectory = "Content";
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-            route = new Route(Services,Content, baseScreenSize);
+            route = new Route(Services, Content, baseScreenSize);
             ScalePresentationArea();
             mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
         }
