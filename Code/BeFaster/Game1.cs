@@ -69,7 +69,7 @@ namespace BeFaster
                 Exit();
 
             // TODO: Add your update logic here
-
+            route.update(gameTime);
             base.Update(gameTime);
         }
         protected override void Draw(GameTime gameTime)
