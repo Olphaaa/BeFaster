@@ -34,3 +34,16 @@ C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\
 C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.csproj.CoreCompileInputs.cache
 C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.dll
 C:\Users\hugod\Documents\Cours\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.pdb
+F:\Cours\2A\RV\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\BeFaster.deps.json
+F:\Cours\2A\RV\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\BeFaster.dll
+F:\Cours\2A\RV\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\BeFaster.pdb
+F:\Cours\2A\RV\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.csprojAssemblyReference.cache
+F:\Cours\2A\RV\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.AssemblyInfoInputs.cache
+F:\Cours\2A\RV\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.AssemblyInfo.cs
+F:\Cours\2A\RV\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.csproj.CoreCompileInputs.cache
+F:\Cours\2A\RV\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.dll
+F:\Cours\2A\RV\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.pdb
+F:\Cours\2A\RV\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\Mono.Android.dll
+F:\Cours\2A\RV\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\Mono.Android.pdb
+F:\Cours\2A\RV\be-faster\Code\BeFaster\bin\Debug\netstandard2.0\Mono.Android.xml
+F:\Cours\2A\RV\be-faster\Code\BeFaster\obj\Debug\netstandard2.0\BeFaster.csproj.CopyComplete

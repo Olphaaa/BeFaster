@@ -4,11 +4,11 @@
   <Platform>Android</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/Route/road.png</File>
-    <File>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/Route/road_big.png</File>
-    <File>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/Route/road_big_debug.png</File>
-    <File>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/Route/road_big_debug_2.png</File>
-    <File>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/Sprites/Cars/red.png</File>
+    <File>F:/Cours/2A/RV/be-faster/Code/BeFaster/Content/Route/road.png</File>
+    <File>F:/Cours/2A/RV/be-faster/Code/BeFaster/Content/Route/road_big.png</File>
+    <File>F:/Cours/2A/RV/be-faster/Code/BeFaster/Content/Route/road_big_debug.png</File>
+    <File>F:/Cours/2A/RV/be-faster/Code/BeFaster/Content/Route/road_big_debug_2.png</File>
+    <File>F:/Cours/2A/RV/be-faster/Code/BeFaster/Content/Sprites/Cars/red.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

@@ -9,9 +9,10 @@ namespace Game1.Game
 {
     class MainCar
     {
-        private Animation idleAnnimation;
+        private Texture2D layoutMainCar;
         private AnimationCar sprite;
         private SpriteEffects flip = SpriteEffects.None;
+        private float positionMilieu;
 
 
         public Route Route
@@ -39,10 +40,12 @@ namespace Game1.Game
         }
         bool isDestroyed;
 
+        private Vector2 rectangleVoiture;
         public MainCar(Vector2 position,Route route,Vector2 baseScreenSize)
         {
             this.route = route;
             this.baseScreenSize = baseScreenSize;
+            positionMilieu = baseScreenSize.X / 2;
             LoadContent();
             Reset(position);
             ResetMilieuBas();
@@ -53,7 +56,7 @@ namespace Game1.Game
             //Position = position;
             Position = new Vector2(position.X,position.Y);
             isDestroyed = false;
-            sprite.PlayAnimation(idleAnnimation);
+           //sprite.PlayAnimation(layoutMainCar);
         }
         private void ResetMilieuBas()
         {
@@ -61,23 +64,34 @@ namespace Game1.Game
             float tailleH = baseScreenSize.Y-500;
 
             Position = new Vector2(tailleW, tailleH);
+            rectangleVoiture = position;
             isDestroyed = false;
-            sprite.PlayAnimation(idleAnnimation);
+           // sprite.PlayAnimation(layoutMainCar);
         }
         private void LoadContent()
         {
-            idleAnnimation = new Animation(Route.Content.Load<Texture2D>("Sprites/Cars/red"), 0.1f, false);
+            //idleAnnimation = new Animation(Route.Content.Load<Texture2D>("Sprites/Cars/red"), 0.1f, false);
             //idleAnnimation = new Animation(route.Content.Load<Texture2D>("Route/road"), 0.1f, false);
+            layoutMainCar = Route.Content.Load<Texture2D>("Sprites/Cars/red");
         }
 
+        
+
+        public void update(GameTime gametime,float x, float y, float z)
+        {
+            System.Diagnostics.Debug.WriteLine("Accéléromètre:       x: " +  (int)(x*100) + " y:" + (int)(y*100) + " z: " + (int)(z*100));
+
+            rectangleVoiture.X = -(((baseScreenSize.X * x)-positionMilieu)+80/2) ;
+        }
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            if (Velocity.X > 0)
+            /*if (Velocity.X > 0)
                 flip = SpriteEffects.FlipHorizontally;
             else if (Velocity.X < 0)
-                flip = SpriteEffects.None;
+                flip = SpriteEffects.None;*/
 
-            sprite.Draw(gameTime, spriteBatch, Position, flip);
+            //sprite.Draw(gameTime, spriteBatch, rectangleVoiture, flip);
+            spriteBatch.Draw(layoutMainCar, rectangleVoiture, Color.White);
         }
     }
 }

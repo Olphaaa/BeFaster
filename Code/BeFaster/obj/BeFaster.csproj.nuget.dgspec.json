@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {}
+    "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
+    "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
+        "projectUniqueName": "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
         "projectName": "BeFaster",
-        "projectPath": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
+        "projectPath": "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
         "packagesPath": "C:\\Users\\hugod\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hugod\\Documents\\Cours\\be-faster\\Code\\BeFaster\\obj\\",
+        "outputPath": "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.1, )"
             }
           },
           "imports": [
@@ -66,7 +70,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
