@@ -72,7 +72,7 @@ namespace BeFaster
             System.Diagnostics.Debug.WriteLine(accelerometre.ToString());
 
             // TODO: Add your update logic here
-
+            route.update(gameTime);
             base.Update(gameTime);
         }
         protected override void Draw(GameTime gameTime)
