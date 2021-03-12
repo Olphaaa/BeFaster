@@ -1,0 +1,129 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
+        "projectName": "Be faster",
+        "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
+        "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "G:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\olivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid90"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid90": {
+            "projectReferences": {
+              "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
+                "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid90": {
+          "dependencies": {
+            "MonoGame.Content.Builder.Task": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            },
+            "MonoGame.Framework.Android": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            }
+          }
+        }
+      }
+    },
+    "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
+        "projectName": "BeFaster",
+        "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
+        "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "G:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\olivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "MonoGame.Framework.DesktopGL": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

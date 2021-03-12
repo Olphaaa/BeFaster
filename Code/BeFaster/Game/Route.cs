@@ -62,12 +62,10 @@ namespace Game1.Game
 
             if (routeLocation2.Y + tailleImage >= baseScreenSize.Y && routeLocation2.Y + tailleImage <= baseScreenSize.Y + speed)
             {
-                System.Diagnostics.Debug.WriteLine("image 2 arrivé en bas");
                 routeLocation1.Y = positionAuDessus.Y - 1780;
             }
             if (routeLocation1.Y + tailleImage >= baseScreenSize.Y && routeLocation1.Y + tailleImage <= baseScreenSize.Y + speed)
             {
-                System.Diagnostics.Debug.WriteLine("image 1 arrivé en bas");
                 routeLocation2.Y = positionAuDessus.Y - 1780;
             }
 

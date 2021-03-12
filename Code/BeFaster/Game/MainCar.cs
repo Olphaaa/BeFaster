@@ -2,8 +2,11 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Game1.Game
 {
@@ -74,15 +77,32 @@ namespace Game1.Game
             //idleAnnimation = new Animation(route.Content.Load<Texture2D>("Route/road"), 0.1f, false);
             layoutMainCar = Route.Content.Load<Texture2D>("Sprites/Cars/red");
         }
-
-        
-
+        private List<float> moyE = new List<float>();
         public void update(GameTime gametime,float x, float y, float z)
         {
-            System.Diagnostics.Debug.WriteLine("Accéléromètre:       x: " +  (int)(x*100) + " y:" + (int)(y*100) + " z: " + (int)(z*100));
+            
+            if((rectangleVoiture.X <= 100 || rectangleVoiture.X >= baseScreenSize.X - 100))
+            {
+                rectangleVoiture.X = rectangleVoiture.X;
 
-            rectangleVoiture.X = -(((baseScreenSize.X * x)-positionMilieu)+80/2) ;
+            }
+            else
+            {
+                if (moyE.Count >= 10)
+                {
+                    moyE.RemoveAt(0);
+                    moyE.Add(x);
+                }
+                else
+                {
+                    moyE.Add(x);
+                }
+                float moy = moyE.Average();
+                rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80 / 2);
+            }
+
         }
+
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             /*if (Velocity.X > 0)
