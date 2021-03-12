@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/Route/road_big.png</SourceFile>
-  <SourceTime>2021-03-02T08:35:02.4782351+01:00</SourceTime>
-  <DestFile>C:/Users/olivi/Desktop/be-faster - Copie/Code/BeFaster/Content/bin/Android/Content/Route/road_big.xnb</DestFile>
-  <DestTime>2021-03-02T08:44:43.4161208+01:00</DestTime>
+  <SourceFile>C:/Users/olivi/Desktop/be-faster/Code/BeFaster/Content/Route/road_big.png</SourceFile>
+  <SourceTime>2021-03-09T08:54:07.2682304+01:00</SourceTime>
+  <DestFile>C:/Users/olivi/Desktop/be-faster/Code/BeFaster/Content/bin/Android/Content/Route/road_big.xnb</DestFile>
+  <DestTime>2021-03-12T13:47:10.2553335+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

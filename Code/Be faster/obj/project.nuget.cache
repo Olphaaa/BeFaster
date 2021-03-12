@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "chQxsEi/Hw6IKBsIPY4bJI0yZJkux6w/o5GgxML5SqzNHgbEhzRHLQs415hJkrZZw/JOmv7amep+mR98hhxxDw==",
+  "dgSpecHash": "RZ8rX+UN1vjygx+bLEo66sHp/BauHTZFHE8OwEbwasou5q/rhxLlZlJJOIvUfknL8K52hoM/Fs2zVV4oSSxd0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\Be faster.csproj",
+  "projectFilePath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olivi\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
     "C:\\Users\\olivi\\.nuget\\packages\\monogame.framework.android\\3.8.0.1641\\monogame.framework.android.3.8.0.1641.nupkg.sha512"

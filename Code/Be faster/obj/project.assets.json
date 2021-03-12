@@ -156,11 +156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\Be faster.csproj",
+      "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
       "projectName": "Be faster",
-      "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\Be faster.csproj",
+      "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
       "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\Be faster\\obj\\",
+      "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -181,8 +181,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj": {
-              "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj"
+            "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
+              "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj"
             }
           }
         }

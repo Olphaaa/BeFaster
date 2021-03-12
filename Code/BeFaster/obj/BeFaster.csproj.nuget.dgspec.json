@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj": {}
+    "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {}
   },
   "projects": {
-    "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj": {
+    "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj",
+        "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
         "projectName": "BeFaster",
-        "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\BeFaster.csproj",
+        "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
         "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster - Copie\\Code\\BeFaster\\obj\\",
+        "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "G:\\Microsoft\\Xamarin\\NuGet\\",
