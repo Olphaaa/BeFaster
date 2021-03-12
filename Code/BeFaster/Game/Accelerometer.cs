@@ -1,6 +1,4 @@
 ﻿using System;
-using Android.Content;
-using Android.Hardware;
 using Microsoft.Xna.Framework.Input;
 using Xamarin.Essentials;
 

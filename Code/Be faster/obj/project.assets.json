@@ -1324,24 +1324,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hugod\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\olivi\\.nuget\\packages\\": {},
+    "G:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Cours\\2A\\RV\\be-faster\\Code\\Be faster\\Be faster.csproj",
+      "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
       "projectName": "Be faster",
-      "projectPath": "F:\\Cours\\2A\\RV\\be-faster\\Code\\Be faster\\Be faster.csproj",
-      "packagesPath": "C:\\Users\\hugod\\.nuget\\packages\\",
-      "outputPath": "F:\\Cours\\2A\\RV\\be-faster\\Code\\Be faster\\obj\\",
+      "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\Be faster.csproj",
+      "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\Be faster\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "G:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\hugod\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\olivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1355,8 +1355,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
-              "projectPath": "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\BeFaster.csproj"
+            "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj": {
+              "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj"
             }
           }
         }

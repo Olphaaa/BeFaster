@@ -142,7 +142,6 @@
       "path": "netstandard.library/2.0.3",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/NETStandard.Library.targets",
@@ -372,23 +371,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hugod\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\olivi\\.nuget\\packages\\": {},
+    "G:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
+      "projectUniqueName": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
       "projectName": "BeFaster",
-      "projectPath": "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
-      "packagesPath": "C:\\Users\\hugod\\.nuget\\packages\\",
-      "outputPath": "F:\\Cours\\2A\\RV\\be-faster\\Code\\BeFaster\\obj\\",
+      "projectPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
+      "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "G:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\hugod\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\olivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
