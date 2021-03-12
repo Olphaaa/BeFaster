@@ -9,7 +9,7 @@ namespace Be_faster
     [Activity(
         Label = "@string/app_name",
         MainLauncher = true,
-        Icon = "@drawable/icon",
+        Icon = "@drawable/Icon",
         AlwaysRetainTaskState = true,
         LaunchMode = LaunchMode.SingleInstance,
         ScreenOrientation = ScreenOrientation.FullUser,

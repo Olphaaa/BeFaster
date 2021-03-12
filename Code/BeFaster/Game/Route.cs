@@ -38,8 +38,8 @@ namespace Game1.Game
             content = new ContentManager(serviceProvider, "Content");
             this.content = content;
             this.baseScreenSize = baseScreenSize;
-            layerRoute1 = Content.Load<Texture2D>("Route/road_big_debug");
-            layerRoute2 = Content.Load<Texture2D>("Route/road_big_debug_2");
+            layerRoute1 = Content.Load<Texture2D>("Route/road_big");
+            layerRoute2 = Content.Load<Texture2D>("Route/road_big");
             LoadCar(10, 10);
         }
 
@@ -47,33 +47,29 @@ namespace Game1.Game
         private Vector2 routeLocation1 = Vector2.Zero;
         private Vector2 routeLocation2 = new Vector2(0, -4035);
         private int newY = -4035;
-        
+        private int tailleImage = 4041;
+
         private float speed=25;
         private int i1,i2;
 
         
-        public void update(GameTime gameTime)
+        public void update(GameTime gameTime, float x, float y, float z)
         {
-            
 
-            routeLocation1.Y = positionAuDessus.Y+ i1 *speed;
-            routeLocation2.Y = i2 *speed;
-            
-           
-            if (routeLocation1.Y >= baseScreenSize.Y) //quand 1 arrive en bas
+
+            routeLocation1.Y = routeLocation1.Y + speed;
+            routeLocation2.Y = routeLocation2.Y + speed;
+
+            if (routeLocation2.Y + tailleImage >= baseScreenSize.Y && routeLocation2.Y + tailleImage <= baseScreenSize.Y + speed)
             {
-                routeLocation1 = positionAuDessus;
-                i1 = 0;
+                routeLocation1.Y = positionAuDessus.Y - 1780;
             }
-            if (routeLocation1.Y + 4035 >= baseScreenSize.Y)//des qu'on peut afficher
+            if (routeLocation1.Y + tailleImage >= baseScreenSize.Y && routeLocation1.Y + tailleImage <= baseScreenSize.Y + speed)
             {
-                //coucou
-                routeLocation2.Y = positionAuDessus.Y;
-                i2 = -10;
+                routeLocation2.Y = positionAuDessus.Y - 1780;
             }
 
-            i1++;
-            i2++;
+            mainCar.update(gameTime, x, y, z);
         }
 
         public void LoadCar(int x, int y)

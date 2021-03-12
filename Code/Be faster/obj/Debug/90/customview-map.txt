@@ -1,2 +1,6 @@
+cache-path;C:\Users\olivi\Desktop\be-faster\Code\Be faster\obj\Debug\90\lp\28\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-cache-path;C:\Users\olivi\Desktop\be-faster\Code\Be faster\obj\Debug\90\lp\28\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\olivi\Desktop\be-faster\Code\Be faster\obj\Debug\90\lp\28\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+paths;C:\Users\olivi\Desktop\be-faster\Code\Be faster\obj\Debug\90\lp\28\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 resources;obj\Debug\90\res\values\strings.xml
 string;obj\Debug\90\res\values\strings.xml

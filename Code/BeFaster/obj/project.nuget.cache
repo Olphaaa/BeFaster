@@ -1,12 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "yTmUgVWkDvAPsZa3YgK9ZxsdBsUuUPUJmWqBPq5Ss1KJ1TP2XM8j4szelpDH3xfSMeAFV/jJ8ZHZIP3zOzkcxg==",
+  "dgSpecHash": "Ez9FJIzir2CMb829agKENeNQL0n4oFaSAB4Ucp1sYUJtLiFFCbC7Z7TjJxf3F7+izmh4yQ8UWJIFX9XK6qw3Fw==",
   "success": true,
   "projectFilePath": "C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\BeFaster.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\olivi\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\olivi\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\olivi\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problème de lecture du fichier cache C:\\Users\\olivi\\Desktop\\be-faster\\Code\\BeFaster\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

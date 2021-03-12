@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using BeFaster.Game;
+using Xamarin.Essentials;
+using System;
 
 namespace BeFaster
 {
@@ -16,8 +18,10 @@ namespace BeFaster
         private Rectangle mainFrame;
         Vector2 baseScreenSize = new Vector2(1242, 2208);
         private Matrix globalTransformation;
-        //private Accelerometer accelerometre;
-
+        private AccelerometerTest accelerometre;
+        private float xAccel;
+        private float yAccel;
+        private float zAccel;
         public Vector2 getBaseScreenSize()
         {
             return baseScreenSize;
@@ -30,8 +34,7 @@ namespace BeFaster
             graphics.IsFullScreen = false;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            //accelerometre = new Accelerometer();
-            //accelerometre.getStat();
+            Accelerometer.Start(SensorSpeed.Game);
         }
 
         protected override void Initialize()
@@ -49,9 +52,22 @@ namespace BeFaster
             route = new Route(Services, Content, baseScreenSize);
             ScalePresentationArea();
             mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            if (Accelerometer.IsMonitoring)
+                return;
+            Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
+            Accelerometer.Start(SensorSpeed.Default);
+        }
+
+        private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
+        {
+            //route.update(gametime, e.Reading.Acceleration.X, e.Reading.Acceleration.Y, e.Reading.Acceleration.Z);
+            xAccel = e.Reading.Acceleration.X;
+            yAccel = e.Reading.Acceleration.Y;
+            zAccel = e.Reading.Acceleration.Z;
         }
 
         private int backbufferWidth, backbufferHeight;
+
         public void ScalePresentationArea()
         {
             //Work out how much we need to scale our graphics to fill the screen
@@ -63,13 +79,17 @@ namespace BeFaster
             globalTransformation = Matrix.CreateScale(screenScalingFactor);
             System.Diagnostics.Debug.WriteLine("Screen Size - Width[" + GraphicsDevice.PresentationParameters.BackBufferWidth + "] Height [" + GraphicsDevice.PresentationParameters.BackBufferHeight + "]");
         }
+        private GameTime gametime;
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            
+               Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
             // TODO: Add your update logic here
-            route.update(gameTime);
+            this.gametime = gametime;
+            route.update(gameTime,xAccel,yAccel,zAccel);
             base.Update(gameTime);
         }
         protected override void Draw(GameTime gameTime)
