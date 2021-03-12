@@ -1,4 +1,0 @@
-Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/1994-zazu-01.jpg","C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/bin/Android/Content/zazu.xnb","TextureProcessor","Texture2DContent",48960,750085,0,3805463
-"C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/road.png","C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/bin/Android/Content/road.xnb","TextureProcessor","Texture2DContent",160644,10969429,0,542738
-"C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/Texture/bg.png","C:/Users/hugod/Documents/Cours/be-faster/Code/Be faster/Content/bin/Android/Content/Texture/bg.xnb","TextureProcessor","Texture2DContent",160644,10969429,0,7454259
