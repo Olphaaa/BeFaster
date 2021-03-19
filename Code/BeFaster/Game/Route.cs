@@ -7,6 +7,7 @@ using System.IO;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
+using System.Collections.Generic;
 
 namespace Game1.Game
 {
@@ -14,6 +15,11 @@ namespace Game1.Game
     {
         private Texture2D layerRoute1;
         private Texture2D layerRoute2;
+
+        private Vector2 routeLane1 = new Vector2(300, -200);
+        private Vector2 routeLane2 = new Vector2(490, -200);
+        private Vector2 routeLane3 = new Vector2(680, -200);
+        private Vector2 routeLane4 = new Vector2(870, -200);
         public ContentManager Content
         {
             get { return content; }
@@ -23,6 +29,13 @@ namespace Game1.Game
         {
             get { return mainCar; }
         }
+
+        public float Speed
+        {
+            get { return speed; }
+        }
+        float speed;
+
         MainCar mainCar;
 
         ContentManager content;
@@ -40,23 +53,29 @@ namespace Game1.Game
             this.baseScreenSize = baseScreenSize;
             layerRoute1 = Content.Load<Texture2D>("Route/road_big");
             layerRoute2 = Content.Load<Texture2D>("Route/road_big");
+            speed = 25;
             LoadCar(10, 10);
+
         }
 
-        private Vector2 positionAuDessus = new Vector2(0, -4035);
+        public Vector2 positionAuDessus = new Vector2(0, -4035);
         private Vector2 routeLocation1 = Vector2.Zero;
         private Vector2 routeLocation2 = new Vector2(0, -4035);
         private int newY = -4035;
         private int tailleImage = 4041;
 
-        private float speed=25;
+
         private int i1,i2;
 
         
         public void update(GameTime gameTime, float x, float y, float z)
         {
+            updateRoute(gameTime,x,y,z);
+            updateOtherCar(gameTime);
+        }
 
-
+        private void updateRoute(GameTime gameTime, float x, float y , float z)
+        {
             routeLocation1.Y = routeLocation1.Y + speed;
             routeLocation2.Y = routeLocation2.Y + speed;
 
@@ -71,6 +90,56 @@ namespace Game1.Game
 
             mainCar.update(gameTime, x, y, z);
         }
+        private void updateOtherCar(GameTime gameTime)
+        {
+            randomSpawn();
+            foreach (OtherCar oc in othercars)
+            {
+                oc.update(gameTime);
+            }
+        }
+
+        private void randomSpawn()
+        {
+            Random r = new Random();
+            int rand = r.Next(1, 25);
+            if (rand == 1)
+            {
+                OtherCar otherCar = new OtherCar(this, RandomRouteLane(), baseScreenSize);
+                LoadOtherCar(otherCar);
+            }
+        }
+
+        private List<OtherCar> othercars = new List<OtherCar>();
+        private void LoadOtherCar(OtherCar oc)
+        {
+            othercars.Add(oc);
+        }
+               
+
+        private Vector2 RandomRouteLane()
+        {
+            Random r = new Random();
+            int rand = r.Next(1, 5);
+            switch (rand)
+            {
+                case 1:
+                    return routeLane1;
+                    break;
+                case 2:
+                    return routeLane2;
+                    break;
+                case 3:
+                    return routeLane3;
+                    break;
+                case 4:
+                    return routeLane4;
+                    break;
+                default:
+                    return routeLane1;
+                    break;
+            }
+        }
 
         public void LoadCar(int x, int y)
         { 
@@ -78,15 +147,16 @@ namespace Game1.Game
         }
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-
-            DrawRoute(spriteBatch);
+            DrawRoute(gameTime,spriteBatch);
             MainCar.Draw(gameTime, spriteBatch);
         }
 
-        private void DrawRoute(SpriteBatch spriteBatch)
+        private void DrawRoute(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(layerRoute1, routeLocation1, Color.White);
             spriteBatch.Draw(layerRoute2, routeLocation2, Color.White);
+            foreach (OtherCar oc in othercars)
+                oc.Draw(gameTime, spriteBatch);
         }
     }
 }

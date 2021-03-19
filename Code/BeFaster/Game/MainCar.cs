@@ -99,12 +99,6 @@ namespace Game1.Game
 
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            /*if (Velocity.X > 0)
-                flip = SpriteEffects.FlipHorizontally;
-            else if (Velocity.X < 0)
-                flip = SpriteEffects.None;*/
-
-            //sprite.Draw(gameTime, spriteBatch, rectangleVoiture, flip);
             spriteBatch.Draw(layoutMainCar, rectangleVoiture, Color.White);
         }
     }

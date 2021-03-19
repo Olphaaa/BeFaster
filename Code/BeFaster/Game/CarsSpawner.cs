@@ -13,7 +13,7 @@ namespace BeFaster.Game
 {
     class CarsSpawner
     {
-      /*  public Route Route
+        public Route Route
         {
             get { return route; }
         }
@@ -64,15 +64,11 @@ namespace BeFaster.Game
 
         }
 
-        private double randomStartingPosition()
-        {
-            Random r = new Random();
-            return r.NextDouble() * baseScreenSize.X;
-        }
+        
 
         private void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(layoutMainCar, rectangleVoiture, Color.White);
-        }*/
+        }
     }
 }
