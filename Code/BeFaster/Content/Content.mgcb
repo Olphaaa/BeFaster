@@ -61,6 +61,18 @@
 /processorParam:TextureFormat=Color
 /build:Route/road_big_debug_2.png
 
+#begin Sprites/Cars/green_c.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cars/green_c.png
+
 #begin Sprites/Cars/red.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -72,4 +84,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Cars/red.png
+
+#begin Sprites/Cars/taxi_c-6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Cars/taxi_c-6.png
 

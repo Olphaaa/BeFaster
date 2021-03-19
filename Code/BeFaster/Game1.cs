@@ -28,6 +28,7 @@ namespace BeFaster
         }
 
         private Route route;
+        private CarsSpawner carsSpawner;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -50,6 +51,7 @@ namespace BeFaster
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
             route = new Route(Services, Content, baseScreenSize);
+            //carsSpawner = new CarsSpawner(route, baseScreenSize);
             ScalePresentationArea();
             mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             if (Accelerometer.IsMonitoring)

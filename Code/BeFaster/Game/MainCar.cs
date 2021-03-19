@@ -81,28 +81,19 @@ namespace Game1.Game
         public void update(GameTime gametime,float x, float y, float z)
         {
 
-            if (rectangleVoiture.X <= 200)
+            if (moyE.Count >= 15)
             {
-                rectangleVoiture.X = (float)(rectangleVoiture.X+50);
-            }
-            else if (rectangleVoiture.X >= baseScreenSize.X - 288)
-            {
-                rectangleVoiture.X = (float)(rectangleVoiture.X - 50);
-
+                moyE.RemoveAt(0);
+                moyE.Add(x);
             }
             else
             {
-                if (moyE.Count >= 10)
-                {
-                    moyE.RemoveAt(0);
-                    moyE.Add(x);
-                }
-                else
-                {
-                    moyE.Add(x);
-                }
-                float moy = moyE.Average();
-                rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80 / 2);
+                moyE.Add(x);
+            }
+            float moy = moyE.Average();
+            if (!(-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
+            {
+                rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
             }
         }
 
