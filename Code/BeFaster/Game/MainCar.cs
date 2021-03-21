@@ -88,6 +88,7 @@ namespace Game1.Game
             }
             else
             {
+<<<<<<< Updated upstream
                 if (moyE.Count >= 10)
                 {
                     moyE.RemoveAt(0);
@@ -99,6 +100,14 @@ namespace Game1.Game
                 }
                 float moy = moyE.Average();
                 rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80 / 2);
+=======
+                moyE.Add(x);
+            }
+            float moy = moyE.Average();
+            if (!(-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
+            {
+                    rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
+>>>>>>> Stashed changes
             }
 
         }

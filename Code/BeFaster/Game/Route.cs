@@ -41,6 +41,22 @@ namespace Game1.Game
             layerRoute1 = Content.Load<Texture2D>("Route/road_big");
             layerRoute2 = Content.Load<Texture2D>("Route/road_big");
             LoadCar(10, 10);
+            try
+            {
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(Content.Load<Song>("Musiques/JackyL"));
+                MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+            }
+            catch { }
+        }
+
+
+        void MediaPlayer_MediaStateChanged(object sender, System.
+                                            EventArgs e)
+        {
+            // 0.0f is silent, 1.0f is full volume
+            MediaPlayer.Volume -= 0.1f;
+            MediaPlayer.Play(Content.Load<Song>("Musiques/JackyL"));
         }
 
         private Vector2 positionAuDessus = new Vector2(0, -4035);
@@ -55,8 +71,6 @@ namespace Game1.Game
         
         public void update(GameTime gameTime, float x, float y, float z)
         {
-
-
             routeLocation1.Y = routeLocation1.Y + speed;
             routeLocation2.Y = routeLocation2.Y + speed;
 
@@ -71,6 +85,8 @@ namespace Game1.Game
 
             mainCar.update(gameTime, x, y, z);
         }
+
+        
 
         public void LoadCar(int x, int y)
         { 

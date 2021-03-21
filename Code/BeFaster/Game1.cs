@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using BeFaster.Game;
 using Xamarin.Essentials;
 using System;
+using Microsoft.Xna.Framework.Media;
 
 namespace BeFaster
 {
@@ -22,6 +23,7 @@ namespace BeFaster
         private float xAccel;
         private float yAccel;
         private float zAccel;
+        private Song music;
         public Vector2 getBaseScreenSize()
         {
             return baseScreenSize;
@@ -58,7 +60,7 @@ namespace BeFaster
             Accelerometer.Start(SensorSpeed.Default);
         }
 
-        private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
+    private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
         {
             //route.update(gametime, e.Reading.Acceleration.X, e.Reading.Acceleration.Y, e.Reading.Acceleration.Z);
             xAccel = e.Reading.Acceleration.X;
@@ -84,11 +86,10 @@ namespace BeFaster
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            
-               Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
+            Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
             // TODO: Add your update logic here
             this.gametime = gametime;
+                
             route.update(gameTime,xAccel,yAccel,zAccel);
             base.Update(gameTime);
         }
