@@ -133,6 +133,13 @@ namespace Game1.Game
         private List<OtherCar> othercars = new List<OtherCar>();
         private void LoadOtherCar(OtherCar oc)
         {
+            foreach(OtherCar car in othercars)
+            {
+                if((oc.Position.X+oc.GetLayout.Width)>car.Position.X&&(oc.Position.Y+oc.GetLayout.Height)>car.Position.Y&& (oc.Position.Y + oc.GetLayout.Height)<(car.Position.Y+car.GetLayout.Height)&& (oc.Position.X + oc.GetLayout.Width) < (car.Position.X + car.GetLayout.Width))
+                {
+                    return;
+                }
+            }
             othercars.Add(oc);
         }
                
