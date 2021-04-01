@@ -73,12 +73,12 @@ namespace Game1.Game
             if (isAccelerating)
             {
                 speed = (float)(speed + 0.2);
-                Console.WriteLine("Je fonce !!");
+                //Console.WriteLine("Je fonce !!");
             }
             else
             {
                 speed = (float)(speed - 0.5);
-                Console.WriteLine("Je ralenti !!");
+                //Console.WriteLine("Je ralenti !!");
             }
             checkSpeed();
             if (firstTouch)
@@ -108,7 +108,7 @@ namespace Game1.Game
                 routeLocation2.Y = positionAuDessus.Y - 1780;
             }
 
-            mainCar.update(gameTime, x, y, z);
+            mainCar.update(gameTime, x, y, z,othercars);
         }
         private void updateOtherCar(GameTime gameTime)
         {

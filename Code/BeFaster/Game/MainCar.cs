@@ -16,7 +16,8 @@ namespace Game1.Game
         private AnimationCar sprite;
         private SpriteEffects flip = SpriteEffects.None;
         private float positionMilieu;
-
+        private List<OtherCar> othercars;
+        private float moy;
 
         public Route Route
         {
@@ -78,9 +79,9 @@ namespace Game1.Game
             layoutMainCar = Route.Content.Load<Texture2D>("Sprites/Cars/red");
         }
         private List<float> moyE = new List<float>();
-        public void update(GameTime gametime,float x, float y, float z)
+        public void update(GameTime gametime,float x, float y, float z,List<OtherCar> Cars)
         {
-
+            this.othercars = Cars;
             if (moyE.Count >= 15)
             {
                 moyE.RemoveAt(0);
@@ -90,13 +91,38 @@ namespace Game1.Game
             {
                 moyE.Add(x);
             }
-            float moy = moyE.Average();
-            if (!(-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
+            moy = moyE.Average();
+            if (CanMoove())
             {
                 rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
             }
         }
+           
 
+        public bool CanMoove()
+        { 
+            if((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
+            {
+                return false;
+            }
+            if (othercars == null)
+            {
+                Console.WriteLine("BOUH");
+            }
+            if (othercars != null)
+            {
+                foreach (OtherCar car in this.othercars)
+                {
+                    if (position.X > car.Position.X && position.Y > car.Position.Y && position.X < (car.Position.X + car.GetLayout.Height) && position.Y <(car.Position.Y+ car.GetLayout.Width))
+                    {
+                        Console.WriteLine("AIE JE ME SUIS FAIT MAL");
+                        return false;
+                    }
+                }
+            }
+            //Console.WriteLine("La j'suis bien");
+            return true;
+        }
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(layoutMainCar, rectangleVoiture, Color.White);
