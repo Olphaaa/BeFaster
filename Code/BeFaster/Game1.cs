@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using BeFaster.Game;
 using Xamarin.Essentials;
 using System;
-using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Input.Touch;
 
 namespace BeFaster
 {
@@ -23,13 +23,13 @@ namespace BeFaster
         private float xAccel;
         private float yAccel;
         private float zAccel;
-        private Song music;
         public Vector2 getBaseScreenSize()
         {
             return baseScreenSize;
         }
 
         private Route route;
+        private CarsSpawner carsSpawner;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -37,6 +37,7 @@ namespace BeFaster
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Accelerometer.Start(SensorSpeed.Game);
+            firstTouch = false;
         }
 
         protected override void Initialize()
@@ -52,6 +53,7 @@ namespace BeFaster
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
             route = new Route(Services, Content, baseScreenSize);
+            //carsSpawner = new CarsSpawner(route, baseScreenSize);
             ScalePresentationArea();
             mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             if (Accelerometer.IsMonitoring)
@@ -60,7 +62,7 @@ namespace BeFaster
             Accelerometer.Start(SensorSpeed.Default);
         }
 
-    private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
+        private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
         {
             //route.update(gametime, e.Reading.Acceleration.X, e.Reading.Acceleration.Y, e.Reading.Acceleration.Z);
             xAccel = e.Reading.Acceleration.X;
@@ -82,17 +84,44 @@ namespace BeFaster
             System.Diagnostics.Debug.WriteLine("Screen Size - Width[" + GraphicsDevice.PresentationParameters.BackBufferWidth + "] Height [" + GraphicsDevice.PresentationParameters.BackBufferHeight + "]");
         }
         private GameTime gametime;
+        private bool isAccelerating;
+
+        private bool firstTouch = false;
+
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    Exit();
+
+            
             Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
             // TODO: Add your update logic here
             this.gametime = gametime;
-                
-            route.update(gameTime,xAccel,yAccel,zAccel);
+            touchTest();
+
+            route.update(gameTime,xAccel,yAccel,zAccel,isAccelerating, firstTouch);
             base.Update(gameTime);
         }
+
+        private void touchTest()
+        {
+            TouchCollection touchCollection = TouchPanel.GetState();
+
+            if (touchCollection.Count > 0)
+            {
+                //Only Fire Select Once it's been released
+                if (touchCollection[0].State == TouchLocationState.Moved || touchCollection[0].State == TouchLocationState.Pressed)
+                {
+                    isAccelerating = true;
+                    firstTouch = true;
+                }
+                else
+                {
+                    isAccelerating = false;
+                }
+            }
+        }
+
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.Black);

@@ -80,46 +80,25 @@ namespace Game1.Game
         private List<float> moyE = new List<float>();
         public void update(GameTime gametime,float x, float y, float z)
         {
-            
-            if((rectangleVoiture.X <= 100 || rectangleVoiture.X >= baseScreenSize.X - 100))
-            {
-                rectangleVoiture.X = rectangleVoiture.X;
 
+            if (moyE.Count >= 15)
+            {
+                moyE.RemoveAt(0);
+                moyE.Add(x);
             }
             else
             {
-<<<<<<< Updated upstream
-                if (moyE.Count >= 10)
-                {
-                    moyE.RemoveAt(0);
-                    moyE.Add(x);
-                }
-                else
-                {
-                    moyE.Add(x);
-                }
-                float moy = moyE.Average();
-                rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80 / 2);
-=======
                 moyE.Add(x);
             }
             float moy = moyE.Average();
             if (!(-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
             {
-                    rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
->>>>>>> Stashed changes
+                rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
             }
-
         }
 
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            /*if (Velocity.X > 0)
-                flip = SpriteEffects.FlipHorizontally;
-            else if (Velocity.X < 0)
-                flip = SpriteEffects.None;*/
-
-            //sprite.Draw(gameTime, spriteBatch, rectangleVoiture, flip);
             spriteBatch.Draw(layoutMainCar, rectangleVoiture, Color.White);
         }
     }
