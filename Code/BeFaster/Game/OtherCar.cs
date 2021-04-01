@@ -48,7 +48,7 @@ namespace BeFaster.Game
         private void randomSkin()
         {
             Random r = new Random();
-            int rand = r.Next(1, 4);
+            int rand = r.Next(1, 9);
             switch (rand){
                 case 1:
                     otherCarLayout = Route.Content.Load<Texture2D>("Sprites/Cars/green_c");
@@ -59,6 +59,22 @@ namespace BeFaster.Game
                 case 3:
                     otherCarLayout = Route.Content.Load<Texture2D>("Sprites/Cars/taxi_c-6");
                     break;
+                case 4:
+                    otherCarLayout = Route.Content.Load<Texture2D>("Sprites/Cars/cdo_c");
+                    break;
+                case 5:
+                    otherCarLayout = Route.Content.Load<Texture2D>("Sprites/Cars/green2_c");
+                    break;
+                case 6:
+                    otherCarLayout = Route.Content.Load<Texture2D>("Sprites/Cars/orange_c");
+                    break;
+                case 7:
+                    otherCarLayout = Route.Content.Load<Texture2D>("Sprites/Cars/orange2_c");
+                    break;
+                case 8:
+                    otherCarLayout = Route.Content.Load<Texture2D>("Sprites/Cars/violet_c");
+                    break;
+
             }
         }
         private float speed;
