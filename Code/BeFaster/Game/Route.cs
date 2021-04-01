@@ -68,12 +68,32 @@ namespace Game1.Game
         private int i1,i2;
 
         
-        public void update(GameTime gameTime, float x, float y, float z)
+        public void update(GameTime gameTime, float x, float y, float z, bool isAccelerating, bool firstTouch)
         {
+            if (isAccelerating)
+            {
+                speed = (float)(speed + 0.2);
+                Console.WriteLine("Je fonce !!");
+            }
+            else
+            {
+                speed = (float)(speed - 0.5);
+                Console.WriteLine("Je ralenti !!");
+            }
+            checkSpeed();
+            if (firstTouch)
+            {
+                updateOtherCar(gameTime);
+            }
             updateRoute(gameTime,x,y,z);
-            updateOtherCar(gameTime);
         }
-
+        private void checkSpeed()
+        {
+            if (speed >= 50)
+                speed = 50;
+            else if (speed <= 20)
+                speed = 20;
+        }
         private void updateRoute(GameTime gameTime, float x, float y , float z)
         {
             routeLocation1.Y = routeLocation1.Y + speed;

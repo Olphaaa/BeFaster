@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using BeFaster.Game;
 using Xamarin.Essentials;
 using System;
+using Microsoft.Xna.Framework.Input.Touch;
 
 namespace BeFaster
 {
@@ -36,6 +37,7 @@ namespace BeFaster
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Accelerometer.Start(SensorSpeed.Game);
+            firstTouch = false;
         }
 
         protected override void Initialize()
@@ -82,18 +84,44 @@ namespace BeFaster
             System.Diagnostics.Debug.WriteLine("Screen Size - Width[" + GraphicsDevice.PresentationParameters.BackBufferWidth + "] Height [" + GraphicsDevice.PresentationParameters.BackBufferHeight + "]");
         }
         private GameTime gametime;
+        private bool isAccelerating;
+
+        private bool firstTouch = false;
+
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    Exit();
 
             
-               Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
+            Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
             // TODO: Add your update logic here
             this.gametime = gametime;
-            route.update(gameTime,xAccel,yAccel,zAccel);
+            touchTest();
+
+            route.update(gameTime,xAccel,yAccel,zAccel,isAccelerating, firstTouch);
             base.Update(gameTime);
         }
+
+        private void touchTest()
+        {
+            TouchCollection touchCollection = TouchPanel.GetState();
+
+            if (touchCollection.Count > 0)
+            {
+                //Only Fire Select Once it's been released
+                if (touchCollection[0].State == TouchLocationState.Moved || touchCollection[0].State == TouchLocationState.Pressed)
+                {
+                    isAccelerating = true;
+                    firstTouch = true;
+                }
+                else
+                {
+                    isAccelerating = false;
+                }
+            }
+        }
+
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.Black);
