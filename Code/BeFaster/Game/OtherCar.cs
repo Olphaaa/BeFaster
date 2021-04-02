@@ -20,7 +20,7 @@ namespace BeFaster.Game
             get { return position; }
             set { position = value; }
         }
-
+        
         Vector2 position;
         private Vector2 baseScreenSize;
         private Texture2D otherCarLayout;
@@ -30,15 +30,14 @@ namespace BeFaster.Game
             this.route = route;
             this.position = position;
             this.baseScreenSize = baseScreenSize;
-            this.speed = randomSpeed();
+            this.ecartVitesse = randomSpeed();
             LoadContent();
         }
         private int randomSpeed()
         {
             Random r = new Random();
-            if(route.Speed >= 12)
-                return r.Next((int)(route.Speed - 13), (int)(route.Speed - 10));
-            return (int)route.Speed-2;
+            return r.Next(10, 25);
+
         }
         public void LoadContent()
         {
@@ -74,13 +73,14 @@ namespace BeFaster.Game
                 case 8:
                     otherCarLayout = Route.Content.Load<Texture2D>("Sprites/Cars/violet_c");
                     break;
-
             }
         }
         private float speed;
+        private float ecartVitesse;
+
         public void update(GameTime gametime)
         {
-            position.Y = position.Y + speed;
+            position.Y = position.Y + Route.Speed - ecartVitesse;
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
