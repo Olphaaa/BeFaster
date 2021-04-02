@@ -23,6 +23,13 @@ namespace BeFaster
         private float xAccel;
         private float yAccel;
         private float zAccel;
+
+        //public static bool firstTouch { get; private set; }
+        public bool FirstTouch
+        {
+            get { return firstTouch; }
+        }
+        bool firstTouch;
         public Vector2 getBaseScreenSize()
         {
             return baseScreenSize;
@@ -86,7 +93,6 @@ namespace BeFaster
         private GameTime gametime;
         private bool isAccelerating;
 
-        private bool firstTouch = false;
 
         protected override void Update(GameTime gameTime)
         {
@@ -98,7 +104,8 @@ namespace BeFaster
             // TODO: Add your update logic here
             this.gametime = gametime;
             touchTest();
-
+            if (route.MainCar.IsDestroyed)
+                firstTouch = false;
             route.update(gameTime,xAccel,yAccel,zAccel,isAccelerating, firstTouch);
             base.Update(gameTime);
         }
@@ -116,9 +123,7 @@ namespace BeFaster
                     firstTouch = true;
                 }
                 else
-                {
                     isAccelerating = false;
-                }
             }
         }
 

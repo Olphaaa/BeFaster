@@ -25,6 +25,14 @@ namespace BeFaster.Game
         private Vector2 baseScreenSize;
         private Texture2D otherCarLayout;
 
+        public Texture2D GetLayout {
+            get
+            {
+                return otherCarLayout;
+            }
+        }
+
+
         public OtherCar (Route route, Vector2 position, Vector2 baseScreenSize)
         {
             this.route = route;
