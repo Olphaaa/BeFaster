@@ -44,7 +44,7 @@ namespace BeFaster.Game
         private int randomSpeed()
         {
             Random r = new Random();
-            return r.Next(10, 25);
+            return r.Next(10, 15);
 
         }
         public void LoadContent()
@@ -88,12 +88,24 @@ namespace BeFaster.Game
 
         public void update(GameTime gametime)
         {
-            position.Y = position.Y + Route.Speed - ecartVitesse;
+            position.Y = position.Y + (Route.Speed - ecartVitesse);
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(otherCarLayout, position, Color.White);
+        }
+        public void suivreUneVoiture()
+        {
+            foreach (OtherCar oc in Route.Othercars)
+            {
+                if (oc.position.Y >= position.Y + GetLayout.Height && oc.position.Y >= position.Y - GetLayout.Width && oc.position.X == position.X)
+                {
+                    //la voiture courante suit la voiture
+                    Console.WriteLine("Bouges ta caisse connard !! ");
+                    oc.ecartVitesse = this.ecartVitesse;
+                }
+            }
         }
     }
 }

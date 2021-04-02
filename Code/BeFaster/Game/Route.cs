@@ -35,6 +35,13 @@ namespace Game1.Game
             get { return speed; }
         }
         float speed;
+        public List<OtherCar> Othercars
+        {
+            get { return othercars; }
+        }
+        List<OtherCar> othercars;
+
+        //private List<OtherCar> othercars = new List<OtherCar>();
 
         MainCar mainCar;
 
@@ -54,6 +61,7 @@ namespace Game1.Game
             layerRoute1 = Content.Load<Texture2D>("Route/road_big");
             layerRoute2 = Content.Load<Texture2D>("Route/road_big");
             speed = 25;
+            othercars = new List<OtherCar>();
             LoadCar(10, 10);
 
         }
@@ -115,9 +123,19 @@ namespace Game1.Game
         private void updateOtherCar(GameTime gameTime)
         {
             randomSpawn();
+            OtherCar asd = null;
             foreach (OtherCar oc in othercars)
             {
                 oc.update(gameTime);
+                oc.suivreUneVoiture();
+                if (oc.Position.Y >= baseScreenSize.Y +100)
+                {
+                    asd = oc;
+                }
+            }
+            if (asd != null)
+            {
+                othercars.Remove(asd);
             }
         }
 
@@ -127,12 +145,24 @@ namespace Game1.Game
             int rand = r.Next(1, 25);
             if (rand == 1)
             {
-                OtherCar otherCar = new OtherCar(this, RandomRouteLane(), baseScreenSize);
-                LoadOtherCar(otherCar);
+                OtherCar oc = new OtherCar(this, RandomRouteLane(), baseScreenSize);
+                //LoadOtherCar(oc);
+                foreach (OtherCar car in othercars)
+                {
+                    /*if ((oc.Position.X + oc.GetLayout.Width) > car.Position.X && (oc.Position.Y + oc.GetLayout.Height) > car.Position.Y && (oc.Position.Y + oc.GetLayout.Height) < (car.Position.Y + car.GetLayout.Height) && (oc.Position.X + oc.GetLayout.Width) < (car.Position.X + car.GetLayout.Width))
+                    {
+                        return;
+                    }*/
+                    if (oc.Position.X == car.Position.X && oc.Position.Y <= 0)
+                    {
+                        return;
+                    }
+                }
+                LoadOtherCar(oc);
             }
         }
 
-        private List<OtherCar> othercars = new List<OtherCar>();
+        
         private void LoadOtherCar(OtherCar oc)
         {
             othercars.Add(oc);

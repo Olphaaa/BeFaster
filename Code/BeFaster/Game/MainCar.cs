@@ -101,7 +101,7 @@ namespace Game1.Game
 
         public bool CanMove()
         { 
-            if((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
+            /*if((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
             {
                 return false;
             }
@@ -120,7 +120,7 @@ namespace Game1.Game
                         return false;
                     }
                 }
-            }
+            }*/
             //Console.WriteLine("La j'suis bien");
             return true;
         }
