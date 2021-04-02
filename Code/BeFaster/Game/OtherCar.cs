@@ -7,13 +7,8 @@ using System.Text;
 
 namespace BeFaster.Game
 {
-    class OtherCar
+    public class OtherCar : Car
     {
-        public Route Route
-        {
-            get { return route; }
-        }
-        Route route;
 
         public Vector2 Position
         {
@@ -24,6 +19,11 @@ namespace BeFaster.Game
         Vector2 position;
         private Vector2 baseScreenSize;
         private Texture2D otherCarLayout;
+        public Rectangle HitBox
+        {
+            get { return hitBox; }
+        }
+        Rectangle hitBox;
 
         public Texture2D GetLayout {
             get
@@ -35,12 +35,46 @@ namespace BeFaster.Game
 
         public OtherCar (Route route, Vector2 position, Vector2 baseScreenSize)
         {
-            this.route = route;
+            base.Route = route;
             this.position = position;
             this.baseScreenSize = baseScreenSize;
             this.ecartVitesse = randomSpeed();
+            //hitBox = new Rectangle((int)position.X, (int)position.Y, GetLayout.Height, GetLayout.Height);
             LoadContent();
         }
+
+        public bool collide(OtherCar other)
+        {
+            if (getTopLeft().X < other.getTopLeft().X && getTopRight().X > other.getTopLeft().X) return true;
+            if (getTopLeft().X < other.getTopRight().X && getTopRight().X > other.getTopRight().X) return true;
+
+            if (getTopLeft().Y < other.getTopLeft().Y && getBottomLeft().Y > other.getTopLeft().Y) return true;
+            if (getTopLeft().Y < other.getBottomLeft().Y && getBottomLeft().Y > other.getBottomLeft().Y) return true;
+            return false;
+        }
+
+
+        private Vector2 getTopLeft(){
+            return position;
+        }
+        private Vector2 getTopRight(){
+            return new Vector2(position.X, position.Y + GetLayout.Width);
+        }
+        private Vector2 getBottomLeft()
+        {
+            return new Vector2(position.X + GetLayout.Width, position.Y);
+        }
+        private Vector2 getBottomRight()
+        {
+            return new Vector2(position.X + GetLayout.Width, position.Y + GetLayout.Height);
+        }
+
+
+        private int GetWidth()
+        {
+            return GetLayout.Width;
+        }
+
         private int randomSpeed()
         {
             Random r = new Random();

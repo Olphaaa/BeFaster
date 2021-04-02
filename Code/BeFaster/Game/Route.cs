@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Game1.Game
 {
-    internal class Route
+    public class Route
     {
         private Texture2D layerRoute1;
         private Texture2D layerRoute2;
@@ -66,8 +66,32 @@ namespace Game1.Game
 
 
         private int i1,i2;
-
-        
+        /*public bool CanMove()
+        {
+            if ((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
+            {
+                return false;
+            }
+            if (othercars == null)
+            {
+                Console.WriteLine("BOUH");
+            }
+            if (othercars != null)
+            {
+                foreach (OtherCar car in this.othercars)
+                {
+                    if ((base.Position.X > car.Position.X && base.Position.Y > car.Position.Y) && base.Position.X < (car.Position.X + car.GetLayout.Height) && base.Position.Y < (car.Position.Y + car.GetLayout.Width))
+                    {
+                        Console.WriteLine("AIE JE ME SUIS FAIT MAL");
+                        isDestroyed = true;
+                        return false;
+                    }
+                }
+            }
+            //Console.WriteLine("La j'suis bien");
+            return true;
+        }
+        */
         public void update(GameTime gameTime, float x, float y, float z, bool isAccelerating, bool firstTouch)
         {
             if (isAccelerating)
@@ -118,6 +142,7 @@ namespace Game1.Game
             foreach (OtherCar oc in othercars)
             {
                 oc.update(gameTime);
+                //oc.collide();
             }
         }
 
@@ -169,7 +194,7 @@ namespace Game1.Game
 
         public void LoadCar(int x, int y)
         { 
-            mainCar = new MainCar(new Vector2(x,y),this, baseScreenSize);
+            mainCar = new MainCar(this,baseScreenSize);
         }
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {

@@ -10,28 +10,12 @@ using System.Threading;
 
 namespace Game1.Game
 {
-    class MainCar
+    public class MainCar : Car
     {
-        private Texture2D layoutMainCar;
-        private AnimationCar sprite;
-        private SpriteEffects flip = SpriteEffects.None;
-        private float positionMilieu;
-        private List<OtherCar> othercars;
+        private List<float> moyE = new List<float>();
         private float moy;
 
-        public Route Route
-        {
-            get { return route; }
-        }
-        Route route;
-        private Vector2 baseScreenSize;
 
-        public Vector2 Position
-        {
-            get { return position; }
-            set { position = value; }
-        }
-        Vector2 position;
         public Vector2 Velocity
         {
             get { return velocity; }
@@ -45,30 +29,30 @@ namespace Game1.Game
         bool isDestroyed;
 
         private Vector2 rectangleVoiture;
-        public MainCar(Vector2 position,Route route,Vector2 baseScreenSize)
+        public MainCar(Route route ,Vector2 baseScreenSize)
         {
-            this.route = route;
-            this.baseScreenSize = baseScreenSize;
-            positionMilieu = baseScreenSize.X / 2;
+            base.Route = route;
+            baseScreenSize = baseScreenSize;
             LoadContent();
-            Reset(position);
+            Reset(base.Position);
             ResetMilieuBas();
         }
 
         private void Reset(Vector2 position)
         {
             //Position = position;
-            Position = new Vector2(position.X,position.Y);
+            base.Position = new Vector2(base.Position.X,base.Position.Y);
+            
             isDestroyed = false;
            //sprite.PlayAnimation(layoutMainCar);
         }
         private void ResetMilieuBas()
         {
-            float tailleW = baseScreenSize.X /2;
-            float tailleH = baseScreenSize.Y-500;
+            float tailleW = base.baseScreenSize.X /2;
+            float tailleH = base.baseScreenSize.Y-500;
 
             Position = new Vector2(tailleW, tailleH);
-            rectangleVoiture = position;
+            rectangleVoiture = base.Position;
             isDestroyed = false;
            // sprite.PlayAnimation(layoutMainCar);
         }
@@ -76,12 +60,11 @@ namespace Game1.Game
         {
             //idleAnnimation = new Animation(Route.Content.Load<Texture2D>("Sprites/Cars/red"), 0.1f, false);
             //idleAnnimation = new Animation(route.Content.Load<Texture2D>("Route/road"), 0.1f, false);
-            layoutMainCar = Route.Content.Load<Texture2D>("Sprites/Cars/red");
+            base.layoutCar = Route.Content.Load<Texture2D>("Sprites/Cars/red");
         }
-        private List<float> moyE = new List<float>();
         public void update(GameTime gametime,float x, float y, float z,List<OtherCar> Cars)
         {
-            this.othercars = Cars;
+            //othercars = Cars;
             if (moyE.Count >= 15)
             {
                 moyE.RemoveAt(0);
@@ -92,41 +75,17 @@ namespace Game1.Game
                 moyE.Add(x);
             }
             moy = moyE.Average();
-            if (CanMove())
-            {
+            /*if (CanMove())
+            {*/
                 rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
-            }
+            //}
         }
            
 
-        public bool CanMove()
-        { 
-            if((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
-            {
-                return false;
-            }
-            if (othercars == null)
-            {
-                Console.WriteLine("BOUH");
-            }
-            if (othercars != null)
-            {
-                foreach (OtherCar car in this.othercars)
-                {
-                    if (position.X > car.Position.X && position.Y > car.Position.Y && position.X < (car.Position.X + car.GetLayout.Height) && position.Y <(car.Position.Y+ car.GetLayout.Width))
-                    {
-                        Console.WriteLine("AIE JE ME SUIS FAIT MAL");
-                        isDestroyed = true;
-                        return false;
-                    }
-                }
-            }
-            //Console.WriteLine("La j'suis bien");
-            return true;
-        }
+        
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(layoutMainCar, rectangleVoiture, Color.White);
+            spriteBatch.Draw(layoutCar, rectangleVoiture, Color.White);
         }
     }
 }
