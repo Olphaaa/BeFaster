@@ -135,6 +135,7 @@ namespace Game1.Game
             }
 
             mainCar.update(gameTime, x, y, z,othercars);
+            Console.WriteLine(x);
         }
         private void updateOtherCar(GameTime gameTime)
         {

@@ -75,9 +75,11 @@ namespace Game1.Game
                 moyE.Add(x);
             }
             moy = moyE.Average();
+            rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
+
             /*if (CanMove())
             {*/
-                rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
+
             //}
         }
            
