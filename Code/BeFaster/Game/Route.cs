@@ -20,6 +20,8 @@ namespace Game1.Game
         private Vector2 routeLane2 = new Vector2(490, -200);
         private Vector2 routeLane3 = new Vector2(680, -200);
         private Vector2 routeLane4 = new Vector2(870, -200);
+        private bool isAccelerating;
+
         public ContentManager Content
         {
             get { return content; }
@@ -72,6 +74,7 @@ namespace Game1.Game
         private Vector2 routeLocation2 = new Vector2(0, -4035);
         private int newY = -4035;
         private int tailleImage = 4041;
+        private int rand;
 
 
         private int i1,i2;
@@ -79,6 +82,7 @@ namespace Game1.Game
         
         public void update(GameTime gameTime, float x, float y, float z, bool isAccelerating, bool firstTouch)
         {
+            this.isAccelerating = isAccelerating;
             if (isAccelerating)
             {
                 speed = (float)(speed + 0.2);
@@ -143,7 +147,15 @@ namespace Game1.Game
         private void randomSpawn()
         {
             Random r = new Random();
-            int rand = r.Next(1, 25);
+            if (isAccelerating)
+            {
+                rand = r.Next(1, 15);
+            }
+            else
+            {
+                rand = r.Next(1, 50);
+            }
+
             if (rand == 1)
             {
                 OtherCar oc = new OtherCar(this, RandomRouteLane(), baseScreenSize);
