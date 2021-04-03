@@ -13,18 +13,17 @@ namespace Game1.Game
     class MainCar
     {
         private Texture2D layoutMainCar;
-        private AnimationCar sprite;
-        private SpriteEffects flip = SpriteEffects.None;
+        private Rectangle rectangleCar;
         private float positionMilieu;
         private List<OtherCar> othercars;
         private float moy;
-        private Vector2 taille;
+        private Vector2 baseScreenSize;
+
         public Route Route
         {
             get { return route; }
         }
         Route route;
-        private Vector2 baseScreenSize;
 
         public Vector2 Position
         {
@@ -43,8 +42,14 @@ namespace Game1.Game
             get { return isDestroyed; }
         }
         bool isDestroyed;
+        public Texture2D GetLayout
+        {
+            get
+            {
+                return layoutMainCar;
+            }
+        }
 
-        private Vector2 rectangleVoiture;
         public MainCar(Vector2 position,Route route,Vector2 baseScreenSize)
         {
             this.route = route;
@@ -52,7 +57,9 @@ namespace Game1.Game
             positionMilieu = baseScreenSize.X / 2;
             LoadContent();
             Reset(position);
+            rectangleCar = new Rectangle((int)position.X, (int)position.Y, GetLayout.Width, GetLayout.Height);
             ResetMilieuBas();
+
         }
 
         private void Reset(Vector2 position)
@@ -68,7 +75,8 @@ namespace Game1.Game
             float tailleH = baseScreenSize.Y-500;
 
             Position = new Vector2(tailleW, tailleH);
-            rectangleVoiture = position;
+            Rectangle rect = new Rectangle((int)position.X, (int)position.Y, GetLayout.Width, GetLayout.Height); 
+            rectangleCar = rect;
             isDestroyed = false;
            // sprite.PlayAnimation(layoutMainCar);
         }
@@ -92,15 +100,18 @@ namespace Game1.Game
                 moyE.Add(x);
             }
             moy = moyE.Average();
+
             if (CanMove())
             {
-                rectangleVoiture.X = -(((baseScreenSize.X * moy) - positionMilieu) + 80);
+                rectangleCar.X = (int)-(((baseScreenSize.X * moy) - positionMilieu) + 80);
+
             }
         }
            
 
         public bool CanMove()
-        { 
+        {
+            OtherCar test = null;
             if((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
             {
                 return false;
@@ -123,22 +134,51 @@ namespace Game1.Game
                          isDestroyed = true;
                          return false;
                      }*/
-                    if ((position.X>= car.Position.X && position.X <= car.Position.X + car.GetLayout.Width) &&
-                        (position.Y <= car.Position.Y && position.Y >= car.Position.Y + car.GetLayout.Height)
-                        )
+                    if (this.Collide(car))
                     {
                         Console.WriteLine("AIE JE ME SUIS FAIT MAL");
+                        //test = car;
                         isDestroyed = true;
                         return false;
                     }
                 }
             }
+            if(test != null)
+            {
+                othercars.Remove(test);
+            }
             //Console.WriteLine("La j'suis bien");
             return true;
         }
+        public Vector2 getTopLeft()
+        {
+            return position;
+        }
+        public Vector2 getTopRight()
+        {
+            return new Vector2(position.X + GetLayout.Width, position.Y);
+        }
+        public Vector2 getBottomLeft()
+        {
+            return new Vector2(position.X, position.Y + GetLayout.Height);
+        }
+        public Vector2 getBottomRight()
+        {
+            return new Vector2(position.X + GetLayout.Width, position.Y + GetLayout.Height);
+        }
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(layoutMainCar, rectangleVoiture, Color.White);
+
+            spriteBatch.Draw(layoutMainCar, rectangleCar, Color.White);
+        }
+        public bool Collide(OtherCar other)
+        {
+            Rectangle BoundingRectangle = new Rectangle((int)other.Position.X, (int)other.Position.Y, other.GetLayout.Width, other.GetLayout.Height);
+            if (BoundingRectangle.Intersects(new Rectangle((int)rectangleCar.X, (int)rectangleCar.Y, GetLayout.Width, GetLayout.Height)))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

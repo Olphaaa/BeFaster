@@ -67,6 +67,7 @@ namespace BeFaster
                 return;
             Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
             Accelerometer.Start(SensorSpeed.Default);
+            
         }
 
         private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
@@ -92,8 +93,8 @@ namespace BeFaster
         }
         private GameTime gametime;
         private bool isAccelerating;
-
-
+        private SpriteFont font;
+        private int score;
         protected override void Update(GameTime gameTime)
         {
             //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -107,6 +108,7 @@ namespace BeFaster
             if (route.MainCar.IsDestroyed)
                 firstTouch = false;
             route.update(gameTime,xAccel,yAccel,zAccel,isAccelerating, firstTouch);
+            score++;
             base.Update(gameTime);
         }
 
@@ -134,9 +136,12 @@ namespace BeFaster
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, globalTransformation);
 
             route.Draw(gameTime, spriteBatch);
+            font = Content.Load<SpriteFont>("Font/Score");
+            spriteBatch.DrawString(font, "Score: "+ score, Vector2.Zero, Color.White);
+
+
 
             spriteBatch.End();
-
             base.Draw(gameTime);
         }
     }

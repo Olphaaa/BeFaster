@@ -33,6 +33,7 @@ namespace Game1.Game
         public float Speed
         {
             get { return speed; }
+            set { speed = value; }
         }
         float speed;
         public List<OtherCar> Othercars

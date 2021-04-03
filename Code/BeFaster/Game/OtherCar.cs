@@ -39,6 +39,7 @@ namespace BeFaster.Game
             this.position = position;
             this.baseScreenSize = baseScreenSize;
             this.ecartVitesse = randomSpeed();
+            colored = Color.White;
             LoadContent();
         }
         private int randomSpeed()
@@ -90,11 +91,39 @@ namespace BeFaster.Game
         {
             position.Y = position.Y + (Route.Speed - ecartVitesse);
         }
-
+        public Color Colored
+        {
+            get { return colored; }
+            set { colored = value; }
+        }
+        Color colored;
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(otherCarLayout, position, Color.White);
+            //Texture2D whiteRectangle = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            //whiteRectangle.SetData(new[] {colored });
+            //spriteBatch.Draw(whiteRectangle, new Rectangle((int)position.X, (int)position.Y, GetLayout.Width, GetLayout.Height),colored);
         }
+
+        
+
+        public Vector2 getTopLeft()
+        {
+            return position;
+        }
+        public Vector2 getTopRight()
+        {
+            return new Vector2(position.X + GetLayout.Width, position.Y);
+        }
+        public Vector2 getBottomLeft()
+        {
+            return new Vector2(position.X, position.Y + GetLayout.Height);
+        }
+        public Vector2 getBottomRight()
+        {
+            return new Vector2(position.X + GetLayout.Width, position.Y + GetLayout.Height);
+        }
+
         public void suivreUneVoiture()
         {
             foreach (OtherCar oc in Route.Othercars)
