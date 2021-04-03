@@ -99,7 +99,7 @@ namespace BeFaster.Game
         {
             foreach (OtherCar oc in Route.Othercars)
             {
-                if (oc.position.Y >= position.Y + GetLayout.Height && oc.position.Y >= position.Y - GetLayout.Width && oc.position.X == position.X)
+                if (oc.position.X == this.position.X && (this.position.Y > oc.position.Y || this.position.Y < oc.position.Y + oc.GetLayout.Height))
                 {
                     //la voiture courante suit la voiture
                     Console.WriteLine("Bouges ta caisse connard !! ");
