@@ -102,7 +102,7 @@ namespace BeFaster.Game
                 if (oc.position.X == this.position.X && (this.position.Y > oc.position.Y || this.position.Y < oc.position.Y + oc.GetLayout.Height))
                 {
                     //la voiture courante suit la voiture
-                    Console.WriteLine("Bouges ta caisse connard !! ");
+                    //Console.WriteLine("Bouges ta caisse connard !! ");
                     oc.ecartVitesse = this.ecartVitesse;
                 }
             }

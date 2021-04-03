@@ -18,7 +18,7 @@ namespace Game1.Game
         private float positionMilieu;
         private List<OtherCar> othercars;
         private float moy;
-
+        private Vector2 taille;
         public Route Route
         {
             get { return route; }
@@ -101,7 +101,7 @@ namespace Game1.Game
 
         public bool CanMove()
         { 
-            /*if((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
+            if((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
             {
                 return false;
             }
@@ -111,16 +111,28 @@ namespace Game1.Game
             }
             if (othercars != null)
             {
-                foreach (OtherCar car in this.othercars)
+                foreach (OtherCar car in othercars)
                 {
-                    if (position.X > car.Position.X && position.Y > car.Position.Y && position.X < (car.Position.X + car.GetLayout.Height) && position.Y <(car.Position.Y+ car.GetLayout.Width))
+                    //taille.X = (car.GetLayout.Width *) / 100;   
+                    /* if ((position.X >= car.Position.X && position.X <= (car.Position.X + car.GetLayout.Width*0.85) && position.Y >= car.Position.Y  && (position.Y) <=(car.Position.Y+ car.GetLayout.Height*0.85))||
+                         (car.Position.X>position.X&&car.Position.X<(position.X+layoutMainCar.Width*0.85)&&(car.Position.Y+car.GetLayout.Height*0.85)>position.Y&&(car.Position.Y+car.GetLayout.Height*0.85)<(position.Y+layoutMainCar.Height*0.85))||
+                         ((position.X+layoutMainCar.Width*0.85) >= car.Position.X && (position.Y+layoutMainCar.Height*0.85) >= car.Position.Y && (position.X+layoutMainCar.Width*0.85) <= (car.Position.X + car.GetLayout.Width*0.85) && (position.Y+layoutMainCar.Height*0.85) <= (car.Position.Y + car.GetLayout.Height*0.85))||
+                         ((car.Position.X+car.GetLayout.Width*0.85) > position.X && (car.Position.X+car.GetLayout.Width*0.85) < (position.X + layoutMainCar.Width*0.85) && (car.Position.Y+car.GetLayout.Height*0.85) > position.Y && (car.Position.Y+car.GetLayout.Height*0.85) < (position.Y + layoutMainCar.Height*0.85)))
+                     {
+                         Console.WriteLine("AIE JE ME SUIS FAIT MAL");
+                         isDestroyed = true;
+                         return false;
+                     }*/
+                    if ((position.X>= car.Position.X && position.X <= car.Position.X + car.GetLayout.Width) &&
+                        (position.Y <= car.Position.Y && position.Y >= car.Position.Y + car.GetLayout.Height)
+                        )
                     {
                         Console.WriteLine("AIE JE ME SUIS FAIT MAL");
                         isDestroyed = true;
                         return false;
                     }
                 }
-            }*/
+            }
             //Console.WriteLine("La j'suis bien");
             return true;
         }
