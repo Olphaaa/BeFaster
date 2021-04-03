@@ -153,7 +153,7 @@ namespace Game1.Game
                     {
                         return;
                     }*/
-                    if (oc.Position.X == car.Position.X && oc.Position.Y <= 0)
+                    if (oc.Position.X == car.Position.X && car.Position.Y < 0)
                     {
                         return;
                     }
