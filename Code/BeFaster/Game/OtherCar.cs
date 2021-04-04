@@ -45,7 +45,7 @@ namespace BeFaster.Game
         private int randomSpeed()
         {
             Random r = new Random();
-            return r.Next(10, 15);
+            return r.Next(10, 20);
 
         }
         public void LoadContent()
@@ -128,13 +128,23 @@ namespace BeFaster.Game
         {
             foreach (OtherCar oc in Route.Othercars)
             {
-                if (oc.position.X == this.position.X && (this.position.Y > oc.position.Y || this.position.Y < oc.position.Y + oc.GetLayout.Height))
+                if (Collide(oc))
                 {
                     //la voiture courante suit la voiture
                     //Console.WriteLine("Bouges ta caisse connard !! ");
                     oc.ecartVitesse = this.ecartVitesse;
                 }
             }
+        }
+        public bool Collide(OtherCar other)
+        {
+            Rectangle BoundingRectangle = new Rectangle((int)other.Position.X, (int)other.Position.Y, other.GetLayout.Width, other.GetLayout.Height);
+            Rectangle rectangleOther = new Rectangle((int)position.X, (int)position.Y, GetLayout.Width, GetLayout.Height);
+            if (BoundingRectangle.Intersects(new Rectangle((int)rectangleOther.X + 10, (int)rectangleOther.Y, GetLayout.Width - 20, GetLayout.Height + 50)))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

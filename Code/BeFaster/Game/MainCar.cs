@@ -50,7 +50,7 @@ namespace Game1.Game
             }
         }
 
-        public MainCar(Vector2 position,Route route,Vector2 baseScreenSize)
+        public MainCar(Vector2 position, Route route, Vector2 baseScreenSize)
         {
             this.route = route;
             this.baseScreenSize = baseScreenSize;
@@ -65,20 +65,20 @@ namespace Game1.Game
         private void Reset(Vector2 position)
         {
             //Position = position;
-            Position = new Vector2(position.X,position.Y);
+            Position = new Vector2(position.X, position.Y);
             isDestroyed = false;
-           //sprite.PlayAnimation(layoutMainCar);
+            //sprite.PlayAnimation(layoutMainCar);
         }
         private void ResetMilieuBas()
         {
-            float tailleW = baseScreenSize.X /2;
-            float tailleH = baseScreenSize.Y-500;
+            float tailleW = baseScreenSize.X / 2;
+            float tailleH = baseScreenSize.Y - 500;
 
             Position = new Vector2(tailleW, tailleH);
-            Rectangle rect = new Rectangle((int)position.X, (int)position.Y, GetLayout.Width, GetLayout.Height); 
+            Rectangle rect = new Rectangle((int)position.X, (int)position.Y, GetLayout.Width, GetLayout.Height);
             rectangleCar = rect;
             isDestroyed = false;
-           // sprite.PlayAnimation(layoutMainCar);
+            // sprite.PlayAnimation(layoutMainCar);
         }
         private void LoadContent()
         {
@@ -87,7 +87,7 @@ namespace Game1.Game
             layoutMainCar = Route.Content.Load<Texture2D>("Sprites/Cars/red");
         }
         private List<float> moyE = new List<float>();
-        public void update(GameTime gametime,float x, float y, float z,List<OtherCar> Cars)
+        public void update(GameTime gametime, float x, float y, float z, List<OtherCar> Cars)
         {
             this.othercars = Cars;
             if (moyE.Count >= 15)
@@ -107,12 +107,12 @@ namespace Game1.Game
 
             }
         }
-           
+
 
         public bool CanMove()
         {
             OtherCar test = null;
-            if((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
+            if ((-(((baseScreenSize.X * moy) - positionMilieu) + 80) <= 200 || -(((baseScreenSize.X * moy) - positionMilieu) + 80) >= baseScreenSize.X - 260))
             {
                 return false;
             }
@@ -143,7 +143,7 @@ namespace Game1.Game
                     }
                 }
             }
-            if(test != null)
+            if (test != null)
             {
                 othercars.Remove(test);
             }
@@ -168,13 +168,12 @@ namespace Game1.Game
         }
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-
             spriteBatch.Draw(layoutMainCar, rectangleCar, Color.White);
         }
         public bool Collide(OtherCar other)
         {
             Rectangle BoundingRectangle = new Rectangle((int)other.Position.X, (int)other.Position.Y, other.GetLayout.Width, other.GetLayout.Height);
-            if (BoundingRectangle.Intersects(new Rectangle((int)rectangleCar.X, (int)rectangleCar.Y, GetLayout.Width, GetLayout.Height)))
+            if (BoundingRectangle.Intersects(new Rectangle((int)rectangleCar.X + 10, (int)rectangleCar.Y, GetLayout.Width - 20, GetLayout.Height)))
             {
                 return true;
             }

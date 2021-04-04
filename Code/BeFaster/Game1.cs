@@ -74,7 +74,7 @@ namespace BeFaster
                 return;
             Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
             Accelerometer.Start(SensorSpeed.Default);
-            
+
         }
 
         private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
@@ -100,7 +100,8 @@ namespace BeFaster
         }
         private GameTime gametime;
         private bool isAccelerating;
-        private SpriteFont font;
+        private SpriteFont fontScore;
+        private SpriteFont fontText;
         private int score;
         protected override void Update(GameTime gameTime)
         {
@@ -117,7 +118,14 @@ namespace BeFaster
                     firstTouch = false;
                 route.update(gameTime, xAccel, yAccel, zAccel, isAccelerating, firstTouch);
                 if (enPartie)
-                    score++;
+                {
+                    score = (int)(score + route.Speed / 15);
+                    if (score >= 1000 || true)
+                    {
+                        //todo - faire si on change la limite
+                        route.setDownLimit(9);
+                    }
+                }
                 if (route.MainCar.IsDestroyed)
                 {
                     enPartie = false;
@@ -156,7 +164,7 @@ namespace BeFaster
             if (touchCollection.Count > 0)
             {
                 //Only Fire Select Once it's been released
-                if (touchCollection[0].State == TouchLocationState.Moved || touchCollection[0].State == TouchLocationState.Pressed)
+                if (touchCollection[0].State == TouchLocationState.Pressed)
                 {
                     graphics.IsFullScreen = false;
                     Content.RootDirectory = "Content";
@@ -178,23 +186,24 @@ namespace BeFaster
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, globalTransformation);
 
             route.Draw(gameTime, spriteBatch);
-            font = Content.Load<SpriteFont>("Font/Score");
+            fontScore = Content.Load<SpriteFont>("Font/Score");
+            fontText = Content.Load<SpriteFont>("Font/Text");
             if (debutJeu)
             {
                 jeu.X = (baseScreenSize.X / 2) - 450;
                 jeu.Y = (baseScreenSize.Y / 2) - 50;
-                spriteBatch.DrawString(font, "Appuyer pour lancer le jeu ", jeu, Color.Red);
+                spriteBatch.DrawString(fontText, "appuyer pour accelerer", jeu, Color.Red);
             }
-            if(partieEnCours)
-                spriteBatch.DrawString(font, "Score: "+ score, Vector2.Zero, Color.White);
+            if (partieEnCours)
+                spriteBatch.DrawString(fontScore, "score: " + score, Vector2.Zero, Color.WhiteSmoke);
             if (!partieEnCours)
             {
-                jeu.X = (baseScreenSize.X / 2)-125;
+                jeu.X = (baseScreenSize.X / 2) - 125;
                 jeu.Y = (baseScreenSize.Y / 2) - 50;
-                spriteBatch.DrawString(font, "PERDU ", jeu, Color.Red);
+                spriteBatch.DrawString(fontScore, "perdu ", jeu, Color.Red);
                 jeu.X = (baseScreenSize.X / 2) - 300;
-                jeu.Y = jeu.Y + 50;
-                spriteBatch.DrawString(font, "Votre score: "+score, jeu, Color.Red);
+                jeu.Y = jeu.Y + 100;
+                spriteBatch.DrawString(fontScore, "votre score: \n" + score, jeu, Color.WhiteSmoke);
             }
 
 

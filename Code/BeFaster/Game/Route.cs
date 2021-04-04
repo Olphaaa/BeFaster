@@ -61,6 +61,8 @@ namespace Game1.Game
             content = new ContentManager(serviceProvider, "Content");
             this.content = content;
             this.baseScreenSize = baseScreenSize;
+            upLimit = 50;
+            downLimit = 5;
             layerRoute1 = Content.Load<Texture2D>("Route/road_big");
             layerRoute2 = Content.Load<Texture2D>("Route/road_big");
             speed = 25;
@@ -77,20 +79,20 @@ namespace Game1.Game
         private int rand;
 
 
-        private int i1,i2;
+        private int i1, i2;
 
-        
+
         public void update(GameTime gameTime, float x, float y, float z, bool isAccelerating, bool firstTouch)
         {
             this.isAccelerating = isAccelerating;
             if (isAccelerating)
             {
-                speed = (float)(speed + 0.2);
+                speed = (float)(speed + 0.5);
                 //Console.WriteLine("Je fonce !!");
             }
             else
             {
-                speed = (float)(speed - 0.5);
+                speed = (float)(speed - 0.7);
                 //Console.WriteLine("Je ralenti !!");
             }
             checkSpeed();
@@ -98,18 +100,26 @@ namespace Game1.Game
             {
                 updateOtherCar(gameTime);
             }
-            updateRoute(gameTime,x,y,z);
+            updateRoute(gameTime, x, y, z);
             if (MainCar.IsDestroyed)
                 DespawnAllOtherCar();
         }
+        private int downLimit;
+        private int upLimit;
         private void checkSpeed()
         {
-            if (speed >= 50)
-                speed = 50;
-            else if (speed <= 20)
-                speed = 20;
+            if (speed >= upLimit)
+                speed = upLimit;
+            else if (speed <= downLimit)
+            {
+                speed = downLimit;
+            }
         }
-        private void updateRoute(GameTime gameTime, float x, float y , float z)
+        public void setDownLimit(int downLimit)
+        {
+            this.downLimit = downLimit;
+        }
+        private void updateRoute(GameTime gameTime, float x, float y, float z)
         {
             routeLocation1.Y = routeLocation1.Y + speed;
             routeLocation2.Y = routeLocation2.Y + speed;
@@ -123,24 +133,24 @@ namespace Game1.Game
                 routeLocation2.Y = positionAuDessus.Y - 1780;
             }
 
-            mainCar.update(gameTime, x, y, z,othercars);
+            mainCar.update(gameTime, x, y, z, othercars);
         }
         private void updateOtherCar(GameTime gameTime)
         {
             randomSpawn();
-            OtherCar asd = null;
+            OtherCar asuppr = null;
             foreach (OtherCar oc in othercars)
             {
                 oc.update(gameTime);
                 oc.suivreUneVoiture();
-                if (oc.Position.Y >= baseScreenSize.Y +100)
+                if (oc.Position.Y >= baseScreenSize.Y *4)
                 {
-                    asd = oc;
+                    asuppr = oc;
                 }
             }
-            if (asd != null)
+            if (asuppr != null)
             {
-                othercars.Remove(asd);
+                othercars.Remove(asuppr);
             }
         }
 
@@ -166,7 +176,11 @@ namespace Game1.Game
                     {
                         return;
                     }*/
-                    if (oc.Position.X == car.Position.X && car.Position.Y < 0)
+                    /*if (oc.Position.X == car.Position.X && (car.Position.Y <= 0 && car.Position.Y <= -300) )
+                    {
+                        return;
+                    }*/
+                    if (oc.Collide(car))
                     {
                         return;
                     }
@@ -175,12 +189,12 @@ namespace Game1.Game
             }
         }
 
-        
+
         private void LoadOtherCar(OtherCar oc)
         {
             othercars.Add(oc);
         }
-               
+
         private void DespawnAllOtherCar()
         {
             othercars.Clear();
@@ -211,12 +225,12 @@ namespace Game1.Game
         }
 
         public void LoadCar(int x, int y)
-        { 
-            mainCar = new MainCar(new Vector2(x,y),this, baseScreenSize);
+        {
+            mainCar = new MainCar(new Vector2(x, y), this, baseScreenSize);
         }
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            DrawRoute(gameTime,spriteBatch);
+            DrawRoute(gameTime, spriteBatch);
             MainCar.Draw(gameTime, spriteBatch);
         }
 
