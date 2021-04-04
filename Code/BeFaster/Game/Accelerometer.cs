@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using Microsoft.Xna.Framework.Input;
 using Xamarin.Essentials;
 
@@ -41,4 +41,4 @@ namespace BeFaster.Game
             }
         }
     }
-}
+}*/
