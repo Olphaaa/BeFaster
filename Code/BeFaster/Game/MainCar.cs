@@ -18,6 +18,8 @@ namespace Game1.Game
         private List<OtherCar> othercars;
         private float moy;
         private Vector2 baseScreenSize;
+        private List<float> moyE = new List<float>();
+
 
         public Route Route
         {
@@ -86,8 +88,7 @@ namespace Game1.Game
             //idleAnnimation = new Animation(route.Content.Load<Texture2D>("Route/road"), 0.1f, false);
             layoutMainCar = Route.Content.Load<Texture2D>("Sprites/Cars/red");
         }
-        private List<float> moyE = new List<float>();
-        public void update(GameTime gametime, float x, float y, float z, List<OtherCar> Cars)
+        public void update(GameTime gametime, float x, List<OtherCar> Cars)
         {
             this.othercars = Cars;
             if (moyE.Count >= 15)
@@ -108,7 +109,11 @@ namespace Game1.Game
             }
         }
 
-
+        /// <summary>
+        /// Permet de controller la limite à ne pas franchir de la voiture pour ne pas aller trop à droite ni a gauche
+        /// Control si la voiture principale n'entre pas en collision avec une des voitures existante sur la route
+        /// </summary>
+        /// <returns>true s'il peut bouger, false sinon</returns>
         public bool CanMove()
         {
             OtherCar test = null;
@@ -124,20 +129,8 @@ namespace Game1.Game
             {
                 foreach (OtherCar car in othercars)
                 {
-                    //taille.X = (car.GetLayout.Width *) / 100;   
-                    /* if ((position.X >= car.Position.X && position.X <= (car.Position.X + car.GetLayout.Width*0.85) && position.Y >= car.Position.Y  && (position.Y) <=(car.Position.Y+ car.GetLayout.Height*0.85))||
-                         (car.Position.X>position.X&&car.Position.X<(position.X+layoutMainCar.Width*0.85)&&(car.Position.Y+car.GetLayout.Height*0.85)>position.Y&&(car.Position.Y+car.GetLayout.Height*0.85)<(position.Y+layoutMainCar.Height*0.85))||
-                         ((position.X+layoutMainCar.Width*0.85) >= car.Position.X && (position.Y+layoutMainCar.Height*0.85) >= car.Position.Y && (position.X+layoutMainCar.Width*0.85) <= (car.Position.X + car.GetLayout.Width*0.85) && (position.Y+layoutMainCar.Height*0.85) <= (car.Position.Y + car.GetLayout.Height*0.85))||
-                         ((car.Position.X+car.GetLayout.Width*0.85) > position.X && (car.Position.X+car.GetLayout.Width*0.85) < (position.X + layoutMainCar.Width*0.85) && (car.Position.Y+car.GetLayout.Height*0.85) > position.Y && (car.Position.Y+car.GetLayout.Height*0.85) < (position.Y + layoutMainCar.Height*0.85)))
-                     {
-                         Console.WriteLine("AIE JE ME SUIS FAIT MAL");
-                         isDestroyed = true;
-                         return false;
-                     }*/
                     if (this.Collide(car))
                     {
-                        Console.WriteLine("AIE JE ME SUIS FAIT MAL");
-                        //test = car;
                         isDestroyed = true;
                         return false;
                     }
@@ -150,26 +143,55 @@ namespace Game1.Game
             //Console.WriteLine("La j'suis bien");
             return true;
         }
+        /// <summary>
+        /// Avoir les coordonnées d'une position
+        /// </summary>
+        /// <returns>la position actuelle soir la valeur en haut a gauche du sujet</returns>
         public Vector2 getTopLeft()
         {
             return position;
         }
+
+        /// <summary>
+        /// Avoir les coordonnées d'une position
+        /// </summary>
+        /// <returns>La valeur en haut à droite</returns>
         public Vector2 getTopRight()
         {
             return new Vector2(position.X + GetLayout.Width, position.Y);
         }
+        /// <summary>
+        /// Avoir les coordonnées d'une position
+        /// </summary>
+        /// <returns>La valeur en bas à gauche</returns>
         public Vector2 getBottomLeft()
         {
             return new Vector2(position.X, position.Y + GetLayout.Height);
         }
+        /// <summary>
+        /// Avoir les coordonnées d'une position
+        /// </summary>
+        /// <returns>La valeur en bas à droite</returns>
         public Vector2 getBottomRight()
         {
             return new Vector2(position.X + GetLayout.Width, position.Y + GetLayout.Height);
         }
+
+        /// <summary>
+        /// Dessine la voiture sur la route
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spriteBatch"></param>
         internal void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(layoutMainCar, rectangleCar, Color.White);
         }
+
+        /// <summary>
+        /// méthode qui permet de détecter une collision
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Collide(OtherCar other)
         {
             Rectangle BoundingRectangle = new Rectangle((int)other.Position.X, (int)other.Position.Y, other.GetLayout.Width, other.GetLayout.Height);
