@@ -50,6 +50,11 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <MandroidI18n />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -84,9 +89,9 @@
     <PackageReference Include="MonoGame.Framework.Android" Version="3.8.0.1641" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BeFaster\BeFaster.csproj">
+    <ProjectReference Include="..\BeFaster\BeFaster.Core.csproj">
       <Project>{bcc19971-b04f-4c6a-807f-d058337982c1}</Project>
-      <Name>BeFaster</Name>
+      <Name>BeFaster.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

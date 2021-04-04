@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 
 namespace Microsoft.Xna.Framework.Input
 {
@@ -25,4 +25,4 @@ namespace Microsoft.Xna.Framework.Input
 
 		public bool IsConnected { get; internal set; }
 	}
-}
+}*/

@@ -14,33 +14,36 @@ namespace BeFaster
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private Texture2D textureRoute;
-        private Texture2D textureVoiture;
+        private Route route;
+        private GameTime gametime;
+        private SpriteFont fontScore;
+        private SpriteFont fontText;
+
+
         private Rectangle mainFrame;
-        Vector2 baseScreenSize = new Vector2(1242, 2208);
         private Matrix globalTransformation;
-        private AccelerometerTest accelerometre;
+        private Vector2 jeu;
+        private Vector2 baseScreenSize = new Vector2(1242, 2208);
+
         private float xAccel;
         private float yAccel;
         private float zAccel;
+        
         private bool enPartie;
         private bool partieEnCours;
-        private Vector2 jeu;
         private bool debutJeu;
+        private bool firstTouch;
+        private bool isAccelerating;
+        
+        private int score;
 
-        //public static bool firstTouch { get; private set; }
-        public bool FirstTouch
-        {
-            get { return firstTouch; }
-        }
-        bool firstTouch;
-        public Vector2 getBaseScreenSize()
-        {
-            return baseScreenSize;
-        }
+       //public static bool firstTouch { get; private set; }
 
-        private Route route;
-        private CarsSpawner carsSpawner;
+
+        /// <summary>
+        /// Constructeur du jeu principal
+        /// Permet d'initialisé les valeurs
+        /// </summary>
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -54,29 +57,28 @@ namespace BeFaster
             debutJeu = true;
         }
 
-        protected override void Initialize()
-        {
-            // TODO: Add your initialization logic here
-
-            base.Initialize();
-        }
-
+        /// <summary>
+        /// Permet de charger les resources / contents
+        /// </summary>
         protected override void LoadContent()
         {
             this.Content.RootDirectory = "Content";
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            // TODO: use this.Content to load your game content here
             route = new Route(Services, Content, baseScreenSize);
-            //carsSpawner = new CarsSpawner(route, baseScreenSize);
             ScalePresentationArea();
             mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             if (Accelerometer.IsMonitoring)
                 return;
             Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
             Accelerometer.Start(SensorSpeed.Default);
-            
+
         }
 
+        /// <summary>
+        /// Li les données de l'acceleromtère du téléphone
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
         {
             //route.update(gametime, e.Reading.Acceleration.X, e.Reading.Acceleration.Y, e.Reading.Acceleration.Z);
@@ -87,6 +89,9 @@ namespace BeFaster
 
         private int backbufferWidth, backbufferHeight;
 
+        /// <summary>
+        /// Defini la taille de l'écran
+        /// </summary>
         public void ScalePresentationArea()
         {
             //Work out how much we need to scale our graphics to fill the screen
@@ -96,12 +101,14 @@ namespace BeFaster
             float verScaling = backbufferHeight / baseScreenSize.Y;
             Vector3 screenScalingFactor = new Vector3(horScaling, verScaling, 1);
             globalTransformation = Matrix.CreateScale(screenScalingFactor);
-            System.Diagnostics.Debug.WriteLine("Screen Size - Width[" + GraphicsDevice.PresentationParameters.BackBufferWidth + "] Height [" + GraphicsDevice.PresentationParameters.BackBufferHeight + "]");
+            Console.WriteLine("Screen Size - Width[" + GraphicsDevice.PresentationParameters.BackBufferWidth + "] Height [" + GraphicsDevice.PresentationParameters.BackBufferHeight + "]");
         }
-        private GameTime gametime;
-        private bool isAccelerating;
-        private SpriteFont font;
-        private int score;
+        
+        /// <summary>
+        /// Méthode appelé  chaque frame de l'application.
+        /// Elle permet d'apperler par la suite chaque update du modèle 
+        /// </summary>
+        /// <param name="gameTime"></param>
         protected override void Update(GameTime gameTime)
         {
             //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -115,9 +122,15 @@ namespace BeFaster
                 touchTest();
                 if (route.MainCar.IsDestroyed)
                     firstTouch = false;
-                route.update(gameTime, xAccel, yAccel, zAccel, isAccelerating, firstTouch);
+                route.update(gameTime, xAccel, isAccelerating,firstTouch);
                 if (enPartie)
-                    score++;
+                {
+                    score = (int)(score + route.Speed / 15);
+                    if (score >= 1000 || true)
+                    {
+                        route.setDownLimit(9);
+                    }
+                }
                 if (route.MainCar.IsDestroyed)
                 {
                     enPartie = false;
@@ -131,32 +144,36 @@ namespace BeFaster
             }
         }
 
+        /// <summary>
+        /// Detecte si le joueur appuie sur l'écran et lance la partie
+        /// </summary>
         private void touchTest()
         {
             TouchCollection touchCollection = TouchPanel.GetState();
 
             if (touchCollection.Count > 0)
             {
-                //Only Fire Select Once it's been released
                 if (touchCollection[0].State == TouchLocationState.Moved || touchCollection[0].State == TouchLocationState.Pressed)
                 {
                     isAccelerating = true;
                     firstTouch = true;
                     enPartie = true;
                     debutJeu = false;
+                    route.setDownLimit(9);
                 }
                 else
                     isAccelerating = false;
             }
         }
-
+        /// <summary>
+        /// Fin de partie pour recommencer une nouvelle
+        /// </summary>
         private void touchRelancer()
         {
             TouchCollection touchCollection = TouchPanel.GetState();
             if (touchCollection.Count > 0)
             {
-                //Only Fire Select Once it's been released
-                if (touchCollection[0].State == TouchLocationState.Moved || touchCollection[0].State == TouchLocationState.Pressed)
+                if (touchCollection[0].State == TouchLocationState.Pressed)
                 {
                     graphics.IsFullScreen = false;
                     Content.RootDirectory = "Content";
@@ -171,6 +188,10 @@ namespace BeFaster
             }
         }
 
+        /// <summary>
+        /// Affiche les contents/données sur l'écran du téléphone 
+        /// </summary>
+        /// <param name="gameTime"></param>
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.Black);
@@ -178,23 +199,24 @@ namespace BeFaster
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, globalTransformation);
 
             route.Draw(gameTime, spriteBatch);
-            font = Content.Load<SpriteFont>("Font/Score");
+            fontScore = Content.Load<SpriteFont>("Font/Score");
+            fontText = Content.Load<SpriteFont>("Font/Text");
             if (debutJeu)
             {
                 jeu.X = (baseScreenSize.X / 2) - 450;
                 jeu.Y = (baseScreenSize.Y / 2) - 50;
-                spriteBatch.DrawString(font, "Appuyer pour lancer le jeu ", jeu, Color.Red);
+                spriteBatch.DrawString(fontText, "appuyer pour accelerer", jeu, Color.Red);
             }
-            if(partieEnCours)
-                spriteBatch.DrawString(font, "Score: "+ score, Vector2.Zero, Color.White);
+            if (partieEnCours)
+                spriteBatch.DrawString(fontScore, "score: " + score, Vector2.Zero, Color.WhiteSmoke);
             if (!partieEnCours)
             {
-                jeu.X = (baseScreenSize.X / 2)-125;
+                jeu.X = (baseScreenSize.X / 2) - 125;
                 jeu.Y = (baseScreenSize.Y / 2) - 50;
-                spriteBatch.DrawString(font, "PERDU ", jeu, Color.Red);
+                spriteBatch.DrawString(fontScore, "perdu ", jeu, Color.Red);
                 jeu.X = (baseScreenSize.X / 2) - 300;
-                jeu.Y = jeu.Y + 50;
-                spriteBatch.DrawString(font, "Votre score: "+score, jeu, Color.Red);
+                jeu.Y = jeu.Y + 100;
+                spriteBatch.DrawString(fontScore, "votre score: \n" + score, jeu, Color.WhiteSmoke);
             }
 
 
